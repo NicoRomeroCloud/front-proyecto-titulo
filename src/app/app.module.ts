@@ -7,8 +7,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { ProductoServicioService } from './services/producto-servicio.service';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes =[
+  {path: 'search/:keyword', component: ListaProductosComponent},
   {path: 'category/:id', component: ListaProductosComponent},
   {path: 'category', component: ListaProductosComponent},
   {path: 'products', component: ListaProductosComponent},
@@ -21,7 +23,8 @@ const routes: Routes =[
   declarations: [
     AppComponent,
     ListaProductosComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

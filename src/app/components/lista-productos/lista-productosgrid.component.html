@@ -11,9 +11,17 @@
                     <div class="product-box">
                         <img src="{{tempProduct.imageUrl}}" class="img-responsive">
                         <h1>{{ tempProduct.name }}</h1>
-                        <div class="price">{{tempProduct.unitPrice | currency: 'clp'}}</div>
+                        <div class="price">{{tempProduct.unitPrice | currency: 'CLP'}}</div>
                         <a href="#" class="primary-btn" style="text-decoration: none;">Agregar al carrito</a>
                     </div>
+
+                </div>
+
+                <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
+
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+
+                    Producto no encontrado.
 
                 </div>
 
