@@ -1,0 +1,19 @@
+<div class="details-section ">
+    <div class="container-fluid">
+
+       <img src="{{ product?.imageUrl }}" class="detail-img">
+       <h2><b>{{product?.name}}</b></h2>
+       <div class="price">${{product?.unitPrice}} CLP</div>
+       <a href="#" class="btn btn-secondary">Añade al carrito</a>
+    
+       <hr>
+       <h3><b>Descripción</b></h3>
+       <p>"{{product?.description}}"</p>
+    
+       
+        <a routerLink="/products"  class="btn btn-info">< Volver a la Lista de Productos</a>
+
+       
+       
+    </div>
+</div>

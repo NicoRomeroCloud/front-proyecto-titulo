@@ -723,6 +723,10 @@ table.table.table-bordered th{
 .detail-section{
     margin-top:60px
 }
+.detail-img{
+    width: 30%;
+
+}
 /**/
 
 /* 
@@ -772,7 +776,8 @@ footer{
 }
 footer li a{
     color:#313131;
-    font-weight:500
+    font-weight:500;
+    text-decoration: none;
 }
 footer ul li{
     display:inline-block;

@@ -9,7 +9,7 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root'
 })
 export class ProductoServicioService {
-  
+ 
   private baseUrl = 'http://localhost:8080/api/products';
 
   private categoryUrl = 'http://localhost:8080/api/product-category';
@@ -18,6 +18,14 @@ export class ProductoServicioService {
   constructor(private httpClient: HttpClient) {
    }
    
+    getProduct(theProductId: number): Observable<Producto> {
+    
+      //construir url basada en el id del producto
+      const producturl= `${this.baseUrl}/${theProductId}`;
+
+      return this.httpClient.get<Producto>(producturl);
+  }
+
    getProductList(theCategoryId: number): Observable<Producto[]>{
    
     //POR HACER SI ES QUE LO LEES GIO: se necesita construir una url basada en el id de categoria 
