@@ -18,8 +18,8 @@
                             <h1> <b>{{ tempProduct.name }}</b> </h1>
                         </a>
 
-                        <div class="price">{{tempProduct.unitPrice | currency: 'CLP'}}</div>
-                        <a href="#" class="primary-btn" style="text-decoration: none;">Agregar al carrito</a>
+                        <div class="price">CLP: {{tempProduct.unitPrice }}</div>
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Agregar al carrito</button>
                     </div>
 
                 </div>

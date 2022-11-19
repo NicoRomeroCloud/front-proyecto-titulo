@@ -4,7 +4,7 @@
        <img src="{{ product?.imageUrl }}" class="detail-img">
        <h2><b>{{product?.name}}</b></h2>
        <div class="price">${{product?.unitPrice}} CLP</div>
-       <a href="#" class="btn btn-secondary">Añade al carrito</a>
+       <button (click)="addToCart()" class="btn btn-secondary btn-sm">Añade al carrito</button>
     
        <hr>
        <h3><b>Descripción</b></h3>
