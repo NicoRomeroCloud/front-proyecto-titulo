@@ -3,76 +3,79 @@
 
         <div class="container-fluid">
             <div class="row">
-                
+
                 <!-- Recorrer la colección de productos -->
 
-                <div *ngFor="let tempProduct of products" class="col-md-3">
+               
 
-                    <div class="product-box">
+                    <div *ngFor="let tempProduct of products" class="col-md-3">
+                    
 
-                        <a routerLink="/products/{{tempProduct.id}}">
-                            <img src="{{tempProduct.imageUrl}}" class="img-responsive">
-                        </a>
-                        
-                        <a routerLink="/products/{{tempProduct.id}}"  style="text-decoration:none ;">
-                            <h1> <b>{{ tempProduct.name }}</b> </h1>
-                        </a>
 
-                        <div class="price">CLP: {{tempProduct.unitPrice }}</div>
-                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Agregar al carrito</button>
+                        <div class="product-box">
+
+                            <a routerLink="/products/{{tempProduct.id}}">
+                                <img src="{{tempProduct.imageUrl}}" style="width: 50%;">
+                            </a>
+
+                            <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
+                                <h1> <b>{{ tempProduct.name }}</b> </h1>
+                            </a>
+
+                            <div class="price">CLP: {{tempProduct.unitPrice }}</div>
+                            <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Agregar al
+                                carrito</button>
+                        </div>
+
+                    </div>
+
+                    <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
+
+                    <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+
+                        Producto no encontrado.
+
                     </div>
 
                 </div>
 
-                <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
+                <!-- inicio footer -->
 
-                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-
-                    Producto no encontrado.
-
-                </div>
-
-            </div>
-
-            <!-- inicio footer -->
-
-            <div class="footer-pagination">
-                <div class="row">
-                    <div class="clas-md-6"></div>
+                <div class="footer-pagination">
+                    <div class="row">
+                        <div class="clas-md-6"></div>
 
 
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-9" style="padding-left: 30%;">
-                                <ngb-pagination [(page)]="thePageNumber"
-                                                [pageSize]="thePageSize"
-                                                [collectionSize]="theTotalElemnts"
-                                                [maxSize]="5"
-                                                [boundaryLinks]="true"
-                                                (pageChange)="listProducts()">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-9" style="padding-left: 30%;">
 
-                                </ngb-pagination>
+                                    <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                                        [collectionSize]="theTotalElemnts" [maxSize]="5" [boundaryLinks]="true"
+                                        (pageChange)="listProducts()">
+
+                                    </ngb-pagination>
+                                </div>
+
+                                <div class="col-md-12 mt-4" style="text-align: center;">
+                                    <span class="mr-2">Tamaño de pág. </span>
+
+                                    <select (change)="updatePageSize($any($event.target).value)">
+
+                                        <option selected="true">5</option>
+                                        <option>10</option>
+                                        <option>15</option>
+                                        <option>25</option>
+                                    </select>
+                                </div>
+
                             </div>
-
-                            <div class="col-md-12 mt-4" style="text-align: center;">
-                                <span class="mr-2">Tamaño de pág. </span>
-
-                                <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
-                                    <option>2</option>
-                                    <option selected="true">5</option>
-                                    <option>10</option>
-                                    <option>15</option>
-                                    <option>25</option>
-                                </select>
-                            </div>
-
                         </div>
                     </div>
                 </div>
+
+                <!-- fin footer -->
+
             </div>
-
-            <!-- fin footer -->
-
         </div>
     </div>
-</div>

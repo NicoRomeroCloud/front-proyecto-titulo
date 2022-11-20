@@ -1,19 +1,23 @@
 <div class="details-section ">
     <div class="container-fluid">
 
-       <img src="{{ product?.imageUrl }}" class="detail-img">
-       <h2><b>{{product?.name}}</b></h2>
-       <div class="price">${{product?.unitPrice}} CLP</div>
-       <button (click)="addToCart()" class="btn btn-secondary btn-sm">Añade al carrito</button>
-    
-       <hr>
-       <h3><b>Descripción</b></h3>
-       <p>"{{product?.description}}"</p>
-    
-       
-        <a routerLink="/products"  class="btn btn-info">< Volver a la Lista de Productos</a>
+        <img src="{{ product?.imageUrl }}" class="detail-img">
+        <h2><b>{{product.name}}</b></h2>
+        <div class="price">${{product.unitPrice}} CLP</div>
+        <button (click)="addToCart()" class="btn btn-secondary btn-sm">Añade al carrito</button>
 
-       
-       
+        <hr>
+
+        <div class="card text-white bg-primary mb-3">
+            <h3><b>Descripción</b></h3>
+            <p>"{{product.description}}"</p>
+        </div>
+        
+            <br>
+            <a routerLink="/products" class="btn btn-info">
+                < Volver a la Lista de Productos</a>
+
+
+
+        </div>
     </div>
-</div>

@@ -13,7 +13,7 @@ import { ProductoServicioService } from 'src/app/services/producto-servicio.serv
 export class ListaProductosComponent implements OnInit {
 
   products: Producto[] = [];
-  currentCategoryId: number = 1;
+  currentCategoryId: number = 0;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
 
@@ -22,7 +22,7 @@ export class ListaProductosComponent implements OnInit {
   thePageSize: number = 5;
   theTotalElemnts: number = 0;
   
-  previousKeyword: string = "";
+  previousKeyword: string = null;
 
 
   constructor(private productService: ProductoServicioService,
@@ -75,7 +75,7 @@ export class ListaProductosComponent implements OnInit {
 
     if (categoriaID) {
       //con el id como parametro string, se convierte a numbero usando el simbolo "+"
-      this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+      this.currentCategoryId = parseInt(this.route.snapshot.paramMap.get('id')!);
     } else {
       // categoria no validam se tira default
       this.currentCategoryId = 1;
@@ -93,7 +93,7 @@ export class ListaProductosComponent implements OnInit {
 
     this.previousCategoryId = this.currentCategoryId;
 
-    console.log(`currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`);
+    // console.log(`currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`);
 
 
     //senecesita obtener los productos
@@ -104,14 +104,14 @@ export class ListaProductosComponent implements OnInit {
                                               .subscribe(this.processResult());
   }
 
-  updatePageSize(pageSize: string){
-    this.thePageSize = parseInt(pageSize);
+  updatePageSize(pageSize: number){
+    this.thePageSize = pageSize;
     this.thePageNumber = 1;
     this.listProducts();
   }
 
   processResult(){
-    return (data: any) =>{
+    return data =>{
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
       this.thePageSize = data.page.size;
@@ -121,9 +121,9 @@ export class ListaProductosComponent implements OnInit {
 
   addToCart(theProduct: Producto){
 
-    console.log(`añadiendo al carrito: ${theProduct.name}, ${theProduct.unitPrice}`);
+    // console.log(`añadiendo al carrito: ${theProduct.name}, ${theProduct.unitPrice}`);
 
-    //por hacer el trabajo real... :c
+    
 
     const theCartItem = new CartItem(theProduct);
 
