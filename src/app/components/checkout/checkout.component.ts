@@ -100,6 +100,13 @@ export class CheckoutComponent implements OnInit {
 
     // si el año actual es igual al año seleccionado, entonces comience con el mes actual
 
+    // -si se selecciona el año actual
+    //  -entonces solo mostrar los meses restantes del año
+    //  -empezar en actual hasta 12
+
+    // -1si se selecciona un año futuro
+    //  -luego mostrar meses: 1-12
+
     let startMonth: number;
 
     if (currentYear === selectedYear) {
