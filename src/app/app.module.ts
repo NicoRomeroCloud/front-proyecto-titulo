@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
 
 import { AppComponent } from './app.component';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
@@ -15,9 +16,30 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { LoginStatusComponent } from './components/login-status/login-status.component';
 
+import{
+  OKTA_CONFIG,
+  OktaAuthModule,
+  OktaCallbackComponent
+} from '@okta/okta-angular';
+
+import { OktaAuth } from "@okta/okta-auth-js";
+
+import myAppConfig from './config/my-app-config';
+
+const oktaConfig = myAppConfig.oidc;
+
+const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes =[
+
+  {path: 'login/callback', component: OktaCallbackComponent},
+  {path: 'login', component: LoginComponent},
+
+
+
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
@@ -39,16 +61,20 @@ const routes: Routes =[
     ProductDetailsComponent,
     CartStatusComponent,
     CheckoutComponent,
-    CartDetailsComponent
+    CartDetailsComponent,
+    LoginComponent,
+    LoginStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OktaAuthModule,
   ],
-  providers: [ProductoServicioService],
+  providers: [ProductoServicioService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Country } from 'src/app/common/country';
+import { Order } from 'src/app/common/order';
+import { OrderItem } from 'src/app/common/order-item';
+import { Purchase } from 'src/app/common/purchase';
 import { State } from 'src/app/common/state';
 import { CartService } from 'src/app/services/cart.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { ShopFormMySPlantasService } from 'src/app/services/shop-form-my-splantas.service';
 import { MySPlantasValidators } from 'src/app/validators/my-splantas-validators';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -26,10 +31,11 @@ export class CheckoutComponent implements OnInit {
   shippingAddresStates: State[] = [];
   billingAddresStates: State[] = [];
 
-
   constructor(private formBuilder: FormBuilder,
               private shopFormService: ShopFormMySPlantasService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private checkoutService: CheckoutService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -184,15 +190,81 @@ export class CheckoutComponent implements OnInit {
 
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
 
-    console.log("info enviada");
-    console.log(this.checkoutFormGroup.get('customer').value);
-    console.log(this.checkoutFormGroup.get('customer').value.email);
-    console.log("el pais de direccion de compra es: " + this.checkoutFormGroup.get('shippingAddress').value.country.name);
-    console.log("la region de direccion de compra es: " + this.checkoutFormGroup.get('shippingAddress').value.state.name);
+    //orden-configurar
+    let order = new Order();
+    order.totalPrice = this.totalPrice;
+    order.totalQuantity = this.totalQuantity;
 
+    //obtener items
+    const cartItems = this.cartService.cartItems;
 
+    //crear ordenItems desde carrito
+    //-camino largo
+    let orderItms: OrderItem[] = [];
+    for (let i = 0; i < cartItems.length; i++) {
+      orderItms[i] = new OrderItem(cartItems[i]);
+    }
+    //camino corto
+    //let orderItemsShort: OrderItem[] = cartItems.map(tempCartItem => new OrderItem(tempCartItem));
+  
+    //compra-configurar
+    let purchase = new Purchase();
+
+    //poblar compra-cliente
+    purchase.customer = this.checkoutFormGroup.controls['customer'].value;
+
+    //poblar compra con direccion de compra
+    purchase.shippingAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
+    const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
+    const shippingCountry: Country = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
+
+    purchase.shippingAddress.state = shippingState.name;
+    purchase.shippingAddress.country = shippingCountry.name;
+
+    //poblar compra con direccion de facturacion
+    purchase.billigAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
+    const billigAddress1: State = JSON.parse(JSON.stringify(purchase.billigAddress.state));
+    const billigAddress2: Country = JSON.parse(JSON.stringify(purchase.billigAddress.country));
+
+    purchase.billigAddress.state = billigAddress1.name;
+    purchase.billigAddress.country = billigAddress2.name;
+
+    //poblar compra con orden y los items de la orden
+    purchase.order = order;
+    purchase.orderItems = orderItms;
+    //llamar a la rest api por e CheckoutService
+    this.checkoutService.placeOrder(purchase).subscribe(
+      {
+        next: response => {
+          Swal.fire({icon: 'success',
+                      title: `Su orden ha sido recibida de manera correcta.\nSu numero de seguimiento ded orden es: ${response.orderTrackingNumber}`,
+                      showConfirmButton: true});
+        
+          //resetear carrito
+          this.resetCart();
+
+        },
+        error: err => {
+          Swal.fire('Error',`Ha ocurrido un error: ${err.message}`);
+        }
+      }
+    )
+  
+  
+  }
+  resetCart() {
+    //reseteando info del carrito de compras
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+    //resetear el formulario
+    this.checkoutFormGroup.reset();
+
+    //ir a la pagina de productos
+    this.router.navigateByUrl("/productos");
   }
 
   handleMonthsAndYears() {
