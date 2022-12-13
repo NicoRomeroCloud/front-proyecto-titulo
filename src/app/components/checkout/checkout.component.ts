@@ -11,6 +11,7 @@ import { CheckoutService } from 'src/app/services/checkout.service';
 import { ShopFormMySPlantasService } from 'src/app/services/shop-form-my-splantas.service';
 import { MySPlantasValidators } from 'src/app/validators/my-splantas-validators';
 import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -30,6 +31,14 @@ export class CheckoutComponent implements OnInit {
   countries: Country[] = [];
   shippingAddresStates: State[] = [];
   billingAddresStates: State[] = [];
+
+  firstFormGroup = this.formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this.formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false;
 
   constructor(private formBuilder: FormBuilder,
               private shopFormService: ShopFormMySPlantasService,
@@ -236,13 +245,15 @@ export class CheckoutComponent implements OnInit {
     purchase.order = order;
     purchase.orderItems = orderItms;
     //llamar a la rest api por e CheckoutService
+    console.log("entrando");
     this.checkoutService.placeOrder(purchase).subscribe(
       {
         next: response => {
           Swal.fire({icon: 'success',
-                      title: `Su orden ha sido recibida de manera correcta.\nSu numero de seguimiento ded orden es: ${response.orderTrackingNumber}`,
+                      title: `Su orden ha sido recibida de manera correcta.\nSu número de seguimiento de orden es: ${response.orderTrackingNumber}`,
                       showConfirmButton: true});
         
+                      console.log("entrando 2");
           //resetear carrito
           this.resetCart();
 
@@ -324,5 +335,6 @@ export class CheckoutComponent implements OnInit {
     );
 
   }
+
 
 }

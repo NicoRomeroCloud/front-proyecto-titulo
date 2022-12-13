@@ -18,16 +18,19 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
-
 import{
   OKTA_CONFIG,
   OktaAuthModule,
   OktaCallbackComponent
 } from '@okta/okta-angular';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 import { OktaAuth } from "@okta/okta-auth-js";
 
 import myAppConfig from './config/my-app-config';
+import { Checkout2Component } from './components/checkout2/checkout2.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -63,15 +66,19 @@ const routes: Routes =[
     CheckoutComponent,
     CartDetailsComponent,
     LoginComponent,
-    LoginStatusComponent
+    LoginStatusComponent,
+    Checkout2Component,
   ],
   imports: [
+    
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatStepperModule,
   ],
   providers: [ProductoServicioService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]
