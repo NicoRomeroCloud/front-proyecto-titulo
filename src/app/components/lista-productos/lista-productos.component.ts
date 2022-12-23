@@ -4,6 +4,7 @@ import { CartItem } from 'src/app/common/cart-item';
 import { Producto } from 'src/app/common/producto';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductoServicioService } from 'src/app/services/producto-servicio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-productos',
@@ -122,12 +123,15 @@ export class ListaProductosComponent implements OnInit {
   addToCart(theProduct: Producto){
 
     // console.log(`añadiendo al carrito: ${theProduct.name}, ${theProduct.unitPrice}`);
-
-    
-
     const theCartItem = new CartItem(theProduct);
 
     this.cartService.addToCart(theCartItem);
+
+    Swal.fire(
+      'Producto añadido!',
+      '',
+      'success'
+    )
 
   }
 

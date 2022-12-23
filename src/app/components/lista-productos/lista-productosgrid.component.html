@@ -1,3 +1,4 @@
+<link rel="stylesheet/scss"  href="lista-productos.component.scss">
 <div class="main-content">
     <div class="section-content section-content-p30">
 
@@ -6,76 +7,145 @@
 
                 <!-- Recorrer la colección de productos -->
 
-               
 
-                    <div *ngFor="let tempProduct of products" class="col-md-3">
+
+                <div *ngFor="let tempProduct of products" class="col-md-3">
+
+
+
+                    <!-- <div class="product-box">
+
+                        <a routerLink="/products/{{tempProduct.id}}">
+                            <img src="{{tempProduct.imageUrl}}" style="width: 50%;">
+                        </a>
+
+                        <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
+                            <h1> <b>{{ tempProduct.name }}</b> </h1>
+                        </a>
+
+                        <div class="price">CLP: {{tempProduct.unitPrice }}</div>
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Agregar al
+                            carrito</button>
+                    </div> -->
+
+                    <!-- ----------------------------------------- -->
                     
-
-
-                        <div class="product-box">
-
+                    <div class="wrapper">
+                        
+                        <div class="container">
+                          <div class="top">
                             <a routerLink="/products/{{tempProduct.id}}">
-                                <img src="{{tempProduct.imageUrl}}" style="width: 50%;">
+                                <img src="{{tempProduct.imageUrl}}" >
                             </a>
-
-                            <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
-                                <h1> <b>{{ tempProduct.name }}</b> </h1>
-                            </a>
-
-                            <div class="price">CLP: {{tempProduct.unitPrice }}</div>
-                            <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Agregar al
-                                carrito</button>
-                        </div>
-
-                    </div>
-
-                    <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
-
-                    <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-
-                        Producto no encontrado.
-
-                    </div>
-
-                </div>
-
-                <!-- inicio footer -->
-
-                <div class="footer-pagination">
-                    <div class="row">
-                        <div class="clas-md-6"></div>
-
-
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-9" style="padding-left: 30%;">
-
-                                    <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
-                                        [collectionSize]="theTotalElemnts" [maxSize]="5" [boundaryLinks]="true"
-                                        (pageChange)="listProducts()">
-
-                                    </ngb-pagination>
-                                </div>
-
-                                <div class="col-md-12 mt-4" style="text-align: center;">
-                                    <span class="mr-2">Tamaño de pág. </span>
-
-                                    <select (change)="updatePageSize($any($event.target).value)">
-
-                                        <option selected="true">5</option>
-                                        <option>10</option>
-                                        <option>15</option>
-                                        <option>25</option>
-                                    </select>
-                                </div>
-
+                            <div>
+                                <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
+                                    <h1>{{ tempProduct.name }}</h1>
+                                </a>
                             </div>
+                          </div>
+
+                          <div class="bottom">
+                            <div class="left">
+                              <div class="details">
+                                <h3><b>Precio:</b><p>{{tempProduct.unitPrice | currency:'CLP'}} </p></h3>
+                                
+                              </div>
+                              <div class="buy" (click)="addToCart(tempProduct)">
+                                <i class="material-icons">add_shopping_cart</i>
+                                
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
                         </div>
-                    </div>
+                        
+                        <div class="inside">
+                          <div class="icon"><i class="material-icons">info_outline</i></div>
+                          <div class="contents">
+                            <table>
+                              <tr>
+                                <th>Ancho</th>
+                                <th>Altura</th>
+                              </tr>
+                              <tr>
+                                <td>300mm</td>
+                                <td>400mm</td>
+                              </tr>
+                              <br>
+                              <tr>
+                                <th>Tipo de suelo</th>
+                                <th>Necesidades de sol</th>
+                              </tr>
+                              <tr>
+                                <td>Húmedo</td>
+                                <td>Diaria</td>
+                              </tr>
+                              <br>
+                              <tr>
+                                <th>Florece en</th>
+                                <th>Curiosidad</th>
+                              </tr>
+                              <tr>
+                                <td>-mediados de verano <br> -mediados de otoño</td>
+                                <td>Tolera el calor</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- -----------------------------------------------                             -->
+
+
                 </div>
 
-                <!-- fin footer -->
+                <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
+
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+
+                    Producto no encontrado.
+
+                </div>
 
             </div>
+
+            <!-- inicio footer -->
+
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="clas-md-6"></div>
+
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%;">
+
+                                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                                    [collectionSize]="theTotalElemnts" [maxSize]="5" [boundaryLinks]="true"
+                                    (pageChange)="listProducts()">
+
+                                </ngb-pagination>
+                            </div>
+
+                            <div class="col-md-12 mt-4" style="text-align: center;">
+                                <span class="mr-2">Tamaño de pág. </span>
+
+                                <select (change)="updatePageSize($any($event.target).value)">
+
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>15</option>
+                                    <option>25</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fin footer -->
+
         </div>
     </div>
+</div>

@@ -14,13 +14,13 @@
                     </tr>
 
                     <tr *ngFor="let tempCartItems of cartItems">
-                        <td>
+                        <td style="align-items: center;">
                             <img src="{{tempCartItems.imageUrl}}" class="img-responsive" width="150px">
                         </td>
 
                         <td>
                             <p>{{tempCartItems.name}}</p>
-                            <p>Precio de la unidad: {{tempCartItems.unitPrice}}</p>
+                            <p>Precio de la unidad: {{tempCartItems.unitPrice | currency:'CLP'}}</p>
                         </td>
 
                         <td>
@@ -51,7 +51,7 @@
                             <button (click)="quitar(tempCartItems)" class="btn btn-danger btn-sm mt-2">
                                 Quitar producto
                             </button>
-                            <p class="mt-2">Subtotal: ${{tempCartItems.quantity * tempCartItems.unitPrice}}</p>
+                            <p class="mt-2">Subtotal: {{tempCartItems.quantity * tempCartItems.unitPrice | currency:'CLP'}}</p>
                         </td>
 
                     </tr>
@@ -61,7 +61,7 @@
                         <td style="font-weight: bold;">
                             <p><b>Cantidad Total: {{totalQuantity}} </b></p>
                             <p><b>Envío a domicilio: GRATIS</b></p>
-                            <P><b>Precio total: ${{totalPrice}}</b></P>
+                            <P><b>Precio total: ${{totalPrice | currency:'CLP'}}</b></P>
                             <a routerLink="/checkout" class="btn btn-primary">Verificar</a>
                         </td>
 
