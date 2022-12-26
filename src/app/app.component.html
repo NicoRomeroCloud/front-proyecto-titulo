@@ -1,53 +1,117 @@
 <div class="page-wrapper">
-
-  <!-- MENU SIDEBAR-->
-  <aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-      <a routerLink="/products">
-        <img src="assets/images/logo.png" alt="" class="img-responsive" width="50%" style="background-color: yellow;">
-      </a>
-    </div>
-
-    <app-product-category-menu></app-product-category-menu>
-    
-  </aside>
-
-  <!-- PAGE CONTAINER-->
-  <div class="page-container">
-    <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
-      <div class="section-content section-content-p30">
-        <div class="container-fluid">
-          <div class="header-wrap">
-
-            <app-search></app-search>
-
-            <!-- <app-login-status></app-login-status> -->
-
-
-
-            <app-cart-status></app-cart-status>
-            
-            
-
-          </div>
-          <div class="account-wrap"></div>
-        </div>
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
+      <div class="logo">
+        <a routerLink="/products">
+          <img src="assets/images/logo.png" alt="" class="img-responsive" width="50%" style="background-color: yellow;">
+        </a>
       </div>
-    </header>
-    <!-- END HEADER DESKTOP-->
-
-    <!-- MAIN CONTENT-->
-    <router-outlet></router-outlet>
+  
+      <app-product-category-menu></app-product-category-menu>
+      
+    </aside>
+  
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      
+      <header class="header-desktop">
+        <div class="section-content section-content-p30">
+          <div class="container-fluid">
+            <div class="header-wrap">
+  
+              <app-search></app-search>
+              <div class="navbar">
+                <nav class="nav">
+                    <ul id="MenuItems">
+                        <li><a href="">Home</a></li>
+                        <li><a routerLink="/products">Productos</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Cuenta</a></li>
+        
+                    </ul>
+                   
+                </nav>
+                 <!-- <img src="https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg" width="30px" height="30px"> -->
+                 <img src="https://cdn-icons-png.flaticon.com/512/2311/2311531.png" class="menu-icon" onclick="menuToggle()">
+    
+            </div>
+              <!-- <app-login-status></app-login-status> -->
+  
+  
+  
+              <app-cart-status></app-cart-status>
+              
+              
+  
+            </div>
+            <div class="account-wrap"></div>
+          </div>
+        </div>
+      </header>
+      <!-- END HEADER DESKTOP-->
+  
+      <!-- MAIN CONTENT-->
+      <router-outlet></router-outlet>
+    </div>
+  
   </div>
+  
+  <!-- FIN -->
+  
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Descarga la app</h3>
+                <div class="app-logo">
+                    <img src="img/png.png" alt="">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="img/png.png">
+                <p>Nuestro propósito es llevar estos productos hasta donde estes,
+                    y hacer accesible plantas maravillosas a todo el mundo.
+                </p>
 
+            </div>
+            <div class="footer-col-3">
+                <h3>Enlaces útiles</h3>
+                <ul>
+                    <li>Cupones</li>
+                    <li>Blog</li>
+                    <li>Política de devoluciones</li>
+
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="Copyright">Copyright 2022UBB - ProyectoTítulo.NRSJ</p>
+    </div>
 </div>
 
-<!-- FIN -->
-<footer>
-  <ul>
-    <li><a href="#">Sobre nosotros</a></li>
-    <li><a href="#">Contáctanos</a></li>
-    <li><a href="#">Ayuda</a></li>
-  </ul>
-</footer>
+<script src="index.js">
+  
+</script>
+<script>var MenuItems = document.getElementById("MenuItems");
+
+  MenuItems.style.maxHeight = "0";
+
+  function menuToggle() {
+      if(MenuItems.style.maxHeight == "0px"){
+          MenuItems.style.maxHeight = "200px";
+      }
+      else{
+          MenuItems.style.maxHeight = "0px";
+      }
+  }</script>

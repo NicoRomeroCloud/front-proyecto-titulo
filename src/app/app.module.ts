@@ -31,29 +31,13 @@ import { OktaAuth } from "@okta/okta-auth-js";
 import myAppConfig from './config/my-app-config';
 import { Checkout2Component } from './components/checkout2/checkout2.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const oktaConfig = myAppConfig.oidc;
 
 const oktaAuth = new OktaAuth(oktaConfig);
-
-const routes: Routes =[
-
-  {path: 'login/callback', component: OktaCallbackComponent},
-  {path: 'login', component: LoginComponent},
-
-
-
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'cart-details', component: CartDetailsComponent},
-  {path: 'products/:id', component: ProductDetailsComponent},
-  {path: 'search/:keyword', component: ListaProductosComponent},
-  {path: 'category/:id', component: ListaProductosComponent},
-  {path: 'category', component: ListaProductosComponent},
-  {path: 'products', component: ListaProductosComponent},
-  {path: '', redirectTo: '/products', pathMatch: 'full'  },
-  {path: '**', redirectTo: '/products', pathMatch: 'full'},
-
-];
 
 @NgModule({
   declarations: [
@@ -68,10 +52,12 @@ const routes: Routes =[
     LoginComponent,
     LoginStatusComponent,
     Checkout2Component,
+    NopagefoundComponent,
+    HomeComponent,
   ],
   imports: [
     
-    RouterModule.forRoot(routes),
+    
     BrowserModule,
     HttpClientModule,
     NgbModule,
@@ -79,6 +65,7 @@ const routes: Routes =[
     BrowserAnimationsModule,
     MatButtonModule,
     MatStepperModule,
+    AppRoutingModule
   ],
   providers: [ProductoServicioService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

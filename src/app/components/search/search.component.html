@@ -1,7 +1,8 @@
 <div class="form-header">
     <input #myInput type="text"
             placeholder="Buscar Productos ..."
-            class="au-input au-input-xl" 
+            class="form-control"
+            style="width: 250px; border-radius: 30px; margin-right: 10px; margin-left: 5px;"
             (keyup.enter)="doSearch(myInput.value)" />
     <button (click)="doSearch(myInput.value)" class="au-btn-submit">
         Buscar
