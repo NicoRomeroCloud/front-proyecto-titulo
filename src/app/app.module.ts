@@ -34,6 +34,11 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { FormClientesComponent } from './components/form-clientes/form-clientes.component';
+import { FormsModule } from '@angular/forms';
+import { PerfilClienteComponent } from './components/perfil-cliente/perfil-cliente.component';
+
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -54,10 +59,11 @@ const oktaAuth = new OktaAuth(oktaConfig);
     Checkout2Component,
     NopagefoundComponent,
     HomeComponent,
+    ClientesComponent,
+    FormClientesComponent,
+    PerfilClienteComponent
   ],
   imports: [
-    
-    
     BrowserModule,
     HttpClientModule,
     NgbModule,
@@ -65,7 +71,8 @@ const oktaAuth = new OktaAuth(oktaConfig);
     BrowserAnimationsModule,
     MatButtonModule,
     MatStepperModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [ProductoServicioService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

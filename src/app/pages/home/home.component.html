@@ -39,13 +39,12 @@
 <div class="small-container">
     <h2 class="title">Productos destacados</h2>
     <div class="row" >
-        <div  *ngFor="let tempProduct of products; first as isFirst; first as isSecond; last as isLast; let indice = index" >
-            <div class="col-4" *ngIf="isFirst">
-                <a routerLink="/products/{{tempProduct.id}}">
-                    <img src="{{tempProduct.imageUrl}}" >
-                </a>
-                <h4>{{ tempProduct.name }}</h4>
-                <div class="rating">
+            <div class="col-4" >
+                <div *ngFor="let tempProduct of products; let indice = index">
+                    
+                    <img *ngIf="indice === 1" src="{{tempProduct.imageUrl}}">
+                <h4 *ngIf="indice === 1">{{tempProduct.name}}</h4>
+                <div class="rating" *ngIf="indice === 1">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -54,14 +53,15 @@
     
     
                 </div>
-                <p>{{tempProduct.unitPrice | currency:'CLP'}}</p>
+                <p *ngIf="indice === 1">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                </div>
             </div>
-            <div class="col-4" *ngIf="indice === 2">
-                <a routerLink="/products/{{tempProduct.id}}">
-                    <img src="{{tempProduct.imageUrl}}" >
-                </a>
-                <h4>{{ tempProduct.name }}</h4>
-                <div class="rating">
+            <div class="col-4" >
+                
+                <div *ngFor="let tempProduct of products; let indice = index">
+                    <img *ngIf="indice === 2" src="{{tempProduct.imageUrl}}">
+                <h4 *ngIf="indice === 2">{{tempProduct.name}}</h4>
+                <div class="rating" *ngIf="indice === 2">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -70,14 +70,16 @@
     
     
                 </div>
-                <p>{{tempProduct.unitPrice | currency:'CLP'}}</p>
+                <p *ngIf="indice === 2">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                </div>
             </div>
-            <div class="col-4" *ngIf="indice === 3">
-                <a routerLink="/products/{{tempProduct.id}}">
-                    <img src="{{tempProduct.imageUrl}}" >
-                </a>
-                <h4>{{ tempProduct.name }}</h4>
-                <div class="rating">
+            
+            <div class="col-4" >
+                
+                <div *ngFor="let tempProduct of products; let indice = index">
+                    <img *ngIf="indice === 3" src="{{tempProduct.imageUrl}}">
+                <h4 *ngIf="indice === 3">{{tempProduct.name}}</h4>
+                <div class="rating" *ngIf="indice === 3">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -86,14 +88,15 @@
     
     
                 </div>
-                <p>{{tempProduct.unitPrice | currency:'CLP'}}</p>
+                <p *ngIf="indice === 3">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                </div>
             </div>
-            <div class="col-4" *ngIf="indice === 4">
-                <a routerLink="/products/{{tempProduct.id}}">
-                    <img src="{{tempProduct.imageUrl}}" >
-                </a>
-                <h4>{{ tempProduct.name }}</h4>
-                <div class="rating">
+            <div class="col-4" >
+                
+                <div *ngFor="let tempProduct of products; let indice = index">
+                    <img *ngIf="indice === 4" src="{{tempProduct.imageUrl}}">
+                <h4 *ngIf="indice === 4">{{tempProduct.name}}</h4>
+                <div class="rating" *ngIf="indice === 4">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -102,71 +105,32 @@
     
     
                 </div>
-                <p>{{tempProduct.unitPrice | currency:'CLP'}}</p>
+                <p *ngIf="indice === 4">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                </div>
             </div>
+            
         </div>
-        
-        </div>
-        
         <h2 class="title">últimos Productos</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="../../../assets/images/products/png.png">
-                <h4>Hermosa suculenta no name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
+            <div class="row">
+                <div class="col-4" >
+                
+                    <div *ngFor="let tempProduct of products; let indice = index">
+                        <img *ngIf="indice === 0" src="{{tempProduct.imageUrl}}">
+                    <h4 *ngIf="indice === 0">{{tempProduct.name}}</h4>
+                    <div class="rating" *ngIf="indice === 0">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+        
+        
+                    </div>
+                    <p *ngIf="indice === 0">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                    </div>
                 </div>
-                <p>Precio xd</p>
-            </div>
-            <div class="col-4">
-                <img src="../../../assets/images/products/png.png">
-                <h4>Hermosa suculenta no name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p>Precio xd</p>
-            </div>
-            <div class="col-4">
-                <img src="../../../assets/images/products/png.png">
-                <h4>Hermosa suculenta no name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p>Precio xd</p>
-            </div>
-            <div class="col-4">
-                <img src="../../../assets/images/products/png.png">
-                <h4>Hermosa suculenta no name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p>Precio xd</p>
-            </div>
-    </div>
+        </div>
+        
 
 </div>
 
@@ -176,13 +140,13 @@
     <div class="small-container">
         <div class="row">
             <div class="col-2">
-                <img src="../../../assets/images/suegra.png" class="oferr-img">
+                <img src="../../../assets/images/products/books/suegra.png" class="oferr-img">
             </div>
             <div class="col-2">
                 <p>Exclusivo solo en MyS Plantas y Suculentas Chillán</p>
                 <h1>Suculenta Lengua de Dragón</h1>
                 <small>Dracaena trifasciata es una especie del género Dracaena originaria del oeste de África tropical hasta Nigeria y al este de República Democrática del Congo. En el 2017 las especies del género Sansevieria fueron incluidas en el género Dracaena con base en estudios moleculares de su filogenia.​​​</small>
-                <a href="" class="btn">Comprar ahora  &#8594;</a>
+                <a routerLink="/products/6" class="btn">Comprar ahora  &#8594;</a>
             </div>
 
         </div>

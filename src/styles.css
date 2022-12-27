@@ -11,6 +11,7 @@ You can add global styles to this file, and also import other style files
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box
+    
 }
 
 body{
@@ -108,12 +109,13 @@ a,a:hover{
 .page-wrapper{
     overflow:hidden;
     background:#e5e5e5;
-    padding-bottom:8vh
+    padding-bottom:35.4vh
 }
 
 .page-container{
     background:#e5e5e5;
-    padding-left:200px
+    padding-left:230px;
+    padding-right: 30px;
 }
 
 .main-content{
@@ -1043,5 +1045,12 @@ footer ul li{
     }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+    position: relative;
+    min-width: 100%;
+}
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    margin-bottom: 60px;
+}

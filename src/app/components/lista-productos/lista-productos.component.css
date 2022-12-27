@@ -118,6 +118,14 @@
 .wrapper .inside .contents h1, .wrapper .inside .contents p, .wrapper .inside .contents table {
   color: white;
 }
+
+.container-fluid{
+  padding-bottom:10px !important;
+}
+.footer-pagination{
+  padding-bottom: -10px !important;
+}
 .wrapper .inside .contents p {
   font-size: 13px;
+  
 }/*# sourceMappingURL=lista-productos.component.css.map */
