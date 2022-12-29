@@ -42,6 +42,8 @@ import { Login2Component } from './components/login2/login2.component';
 import { Login2StatusComponent } from './components/login2-status/login2-status.component';
 import { ProductosCrudComponent } from './components/productos-crud/productos-crud.component';
 import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+
 
 
 const oktaConfig = myAppConfig.oidc;
@@ -69,7 +71,9 @@ const oktaAuth = new OktaAuth(oktaConfig);
     Login2Component,
     Login2StatusComponent,
     ProductosCrudComponent,
-    ProductosCrudFormComponent
+    ProductosCrudFormComponent,
+    LoginFormComponent,
+
   ],
   imports: [
     BrowserModule,

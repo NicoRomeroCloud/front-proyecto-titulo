@@ -48,7 +48,8 @@ export class PerfilClienteComponent implements OnInit {
       Swal.fire('Error: al subir imagen', 'Debe seleccionar una foto', 'error');
     }else{
 
-    this.clienteService.subirFoto(this.fotoSelect, this.cliente.id).subscribe( event =>{
+    this.clienteService.subirFoto(this.fotoSelect, this.cliente.id)
+    .subscribe( event =>{
       if (event.type === HttpEventType.UploadProgress) {
         this.progreso = Math.round((event.loaded/event.total)*100)
       }else if(event.type === HttpEventType.Response){

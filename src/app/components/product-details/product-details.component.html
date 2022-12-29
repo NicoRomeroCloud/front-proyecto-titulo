@@ -90,6 +90,12 @@
                                             <div class="large-6 small-12 column left-align">
                                                 <div class="block_price">
                                                     <p class="block_price__currency">${{product.unitPrice}} CLP</p>
+                                                    <br>
+                                                    <p *ngIf="product.unitsInStock != 0">{{product.unitsInStock}} Unidades en Stock</p>
+                                                    <div  *ngIf="product.unitsInStock == 0" class="alert alert-warning col-md-12" role="alert">
+                                                        <p>PRODUCTO AGOTADO</p>
+                                                    </div>
+
                                                     <p class="block_price__shipping">Envío e impuestos adicionales</p>
                                                 </div>
                                             </div>

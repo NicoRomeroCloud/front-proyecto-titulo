@@ -12,6 +12,7 @@ import { Login2Component } from './components/login2/login2.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductosCrudComponent } from './components/productos-crud/productos-crud.component';
 import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,6 +20,9 @@ const routes: Routes = [
   {path: 'clientes', component: ClientesComponent},
   {path: 'clientes/form', component: FormClientesComponent, canActivate: [AuthGuard]},
   {path: 'clientes/form/:id', component: FormClientesComponent},
+
+  {path: 'register', component: LoginFormComponent},
+
 
   {path: 'productoscrud', component: ProductosCrudComponent},
   {path: 'formcrudproductos', component: ProductosCrudFormComponent},
