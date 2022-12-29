@@ -38,6 +38,10 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { FormClientesComponent } from './components/form-clientes/form-clientes.component';
 import { FormsModule } from '@angular/forms';
 import { PerfilClienteComponent } from './components/perfil-cliente/perfil-cliente.component';
+import { Login2Component } from './components/login2/login2.component';
+import { Login2StatusComponent } from './components/login2-status/login2-status.component';
+import { ProductosCrudComponent } from './components/productos-crud/productos-crud.component';
+import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
 
 
 const oktaConfig = myAppConfig.oidc;
@@ -61,7 +65,11 @@ const oktaAuth = new OktaAuth(oktaConfig);
     HomeComponent,
     ClientesComponent,
     FormClientesComponent,
-    PerfilClienteComponent
+    PerfilClienteComponent,
+    Login2Component,
+    Login2StatusComponent,
+    ProductosCrudComponent,
+    ProductosCrudFormComponent
   ],
   imports: [
     BrowserModule,

@@ -85,10 +85,7 @@
                                         <div class="input-space">
                                             <select formControlName="country" (change)="getStates('shippingAddress')">
                                                 <option value="" hidden selected>Selecciona una opción</option>
-                                                <option *ngFor="let country of countries" [ngValue]="country">
-                                                    
-                                                    {{country.name}}
-                                                </option>
+                                                <option  *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
                                             </select>
                                             <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)" class="alert alert-danger mt-1">
                                                 
@@ -142,8 +139,7 @@
                                             <select formControlName="state">
                                                 <option value="" hidden selected>Selecciona una opción</option>
                                                 <option *ngFor="let state of shippingAddresStates" [ngValue]="state">
-                                                    {{ state.name }}
-                                                </option>
+                                                    {{ state.name }}</option>
                                             </select>
                                             <div *ngIf="shippingAddressState.invalid && (shippingAddressState.dirty || shippingAddressState.touched)" class="alert alert-danger mt-1">
                                                 
@@ -204,8 +200,8 @@
                                             <select formControlName="country" (change)="getStates('billingAddress')">
                                                 <option value="" hidden selected>Selecciona una opción</option>
                                                 <option *ngFor="let country of countries" [ngValue]="country">
-                                                    {{country.name}}
-                                                </option>
+                                                    
+                                                    {{country.name}}</option>
                                             </select>
                                             <div *ngIf="billingAddressCountry.invalid && (billingAddressCountry.dirty || billingAddressCountry.touched)" class="alert alert-danger mt-1">
                                                 
@@ -258,9 +254,8 @@
                                         <div class="input-space">
                                             <select formControlName="state">
                                                 <option value="" hidden selected>Selecciona una opción</option>
-                                                <option *ngFor="let state of billingAddresStates" [ngValue]="state">
-                                                    {{state.name}}
-                                                </option>
+                                                <option *ngFor="let state of shippingAddresStates" [ngValue]="state">
+                                                    {{ state.name }}</option>
                                             </select>
                                             <div *ngIf="billingAddressState.invalid && (billingAddressState.dirty || billingAddressState.touched)" class="alert alert-danger mt-1">
                                                 

@@ -1,0 +1,66 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="card border-primary mb-3">
+    <div class="card-header">Productos</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de productos</h5>
+
+      <button class="btn btn-success" [routerLink]="['/formcrudproductos']">crear</button>
+
+      <div class="my-2 text-left">
+      <!-- <button *ngIf="authService.hasRole('ROLE_ADMIN')" class="btn btn-rounded btn-primary" type="button" routerLink="/clientes/form">Crear Cliente</button> -->
+
+      </div>
+
+
+      <table class="table table-bordered table-striped" >
+        <thead>
+          <tr>
+            <th><b>id</b></th>
+            <th>sku</th>
+            <th>name</th>
+            <th>Categoria</th>
+            <th>description</th>
+            <th>unitPrice</th>
+            <th>imageUrl</th>
+            <th>active</th>
+            <th>unitsInStock</th>
+            <th>dateCreated</th>
+            <th>lastUpdated</th>
+            <th>Acciones</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productos of producto">
+            <td>{{productos.id}}</td>
+            <td>{{productos.sku}}</td>
+            <td>{{productos.name}}</td>
+            <td *ngIf="productos.category !== undefined && productos.category !== null">{{productos.category.categoryName}}</td>
+            <td>{{productos.description}}</td>
+            <td>{{productos.unitPrice  | currency: 'CLP'}}</td>
+            <td>{{productos.imageUrl}}</td>
+            <td>{{productos.active}}</td>
+            <td>{{productos.unitsInStock}}</td>
+            <td>{{productos.dateCreated}}</td>
+            <td>{{productos.lastUpdated}}</td>
+
+            <td>
+               
+              <button class="btn btn-info btn-sm" [routerLink]="['/formcrudproductos', productos.id]">editar</button>
+              <br>
+              <br>
+              <button class="btn btn-danger btn-sm" (click)="eliminarProducto(productos)">eliminar</button>
+
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { Country } from 'src/app/common/country';
 import { Order } from 'src/app/common/order';
 import { OrderItem } from 'src/app/common/order-item';
@@ -45,6 +46,9 @@ export class CheckoutComponent implements OnInit {
               private cartService: CartService,
               private checkoutService: CheckoutService,
               private router: Router) { }
+
+  
+        
 
   ngOnInit(): void {
 
@@ -197,6 +201,8 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(){
 
+    
+
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
       return;
@@ -249,6 +255,9 @@ export class CheckoutComponent implements OnInit {
     this.checkoutService.placeOrder(purchase).subscribe(
       {
         next: response => {
+
+          
+
           Swal.fire({icon: 'success',
                       title: `Su orden ha sido recibida de manera correcta.\nSu número de seguimiento de orden es: ${response.orderTrackingNumber}`,
                       showConfirmButton: true});

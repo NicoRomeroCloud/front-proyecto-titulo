@@ -62,7 +62,8 @@
                             <p><b>Cantidad Total: {{totalQuantity}} </b></p>
                             <p><b>Envío a domicilio: GRATIS</b></p>
                             <P><b>Precio total: ${{totalPrice | currency:'CLP'}}</b></P>
-                            <a routerLink="/checkout" class="btn btn-primary">Verificar</a>
+                            <a *ngIf="authService.hasRole('ROLE_ADMIN')" routerLink="/checkout" class="btn btn-primary">Verificar</a>
+                            <h1 *ngIf="!authService.hasRole('ROLE_ADMIN')">Para pasar al formulario de compra por favor inicia sesión!</h1>
                         </td>
 
                     </tr>
@@ -75,7 +76,7 @@
             <div *ngIf="cartItems.length == 0" class="alert alert-danger col-md-12" role="alert">
                 Su carrito de compras está vacío.
             </div>
-            <button routerLink="/products" class="btn btn-primary btn-sm">Volver atrás</button>
+            <button (click)="onSubmit()" class="btn btn-primary btn-sm">Volver atrás</button>
         </div>
     </div>
 </div>

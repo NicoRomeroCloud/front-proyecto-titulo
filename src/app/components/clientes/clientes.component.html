@@ -13,7 +13,7 @@
 
 
       <div class="my-2 text-left">
-      <button class="btn btn-rounded btn-primary" type="button" routerLink="/clientes/form">Crear Cliente</button>
+      <button *ngIf="authService.hasRole('ROLE_ADMIN')" class="btn btn-rounded btn-primary" type="button" routerLink="/clientes/form">Crear Cliente</button>
 
       </div>
 

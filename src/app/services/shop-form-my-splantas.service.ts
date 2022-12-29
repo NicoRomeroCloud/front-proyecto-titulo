@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from "rxjs";
 import { Country } from '../common/country';
 import { State } from '../common/state';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,20 @@ export class ShopFormMySPlantasService {
 
   private statesUrl = 'http://localhost:8080/api/states';
 
-  constructor( private httpClient: HttpClient) { }
+  constructor( private httpClient: HttpClient, private authService: AuthService) { }
 
   getCountries(): Observable<Country[]>{
 
-    return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
+    let httpHeaders = new HttpHeaders();
+    let token = this.authService.token;
+    if (token != null) {
+       httpHeaders = httpHeaders.append('Authorization', 'Bearer '+ token);
+    }
+
+
+    return this.httpClient.get<GetResponseCountries>(this.countriesUrl, {
+      headers: httpHeaders
+    }).pipe(
       map(response => response._embedded.countries) 
     );
 
@@ -30,7 +40,16 @@ export class ShopFormMySPlantasService {
     const searchStatesUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
 
 
-    return this.httpClient.get<GetResponseState>(searchStatesUrl).pipe(
+    let httpHeaders = new HttpHeaders();
+    let token = this.authService.token;
+    if (token != null) {
+       httpHeaders = httpHeaders.append('Authorization', 'Bearer '+ token);
+    }
+
+
+    return this.httpClient.get<GetResponseState>(searchStatesUrl, {
+      headers: httpHeaders
+    }).pipe(
       map(response => response._embedded.states) 
     );
 

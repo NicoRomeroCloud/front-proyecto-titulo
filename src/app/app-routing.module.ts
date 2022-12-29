@@ -8,13 +8,26 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { HomeComponent } from './pages/home/home.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { FormClientesComponent } from './components/form-clientes/form-clientes.component';
+import { Login2Component } from './components/login2/login2.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ProductosCrudComponent } from './components/productos-crud/productos-crud.component';
+import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'checkout', component: CheckoutComponent},
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
   {path: 'clientes', component: ClientesComponent},
-  {path: 'clientes/form', component: FormClientesComponent},
+  {path: 'clientes/form', component: FormClientesComponent, canActivate: [AuthGuard]},
   {path: 'clientes/form/:id', component: FormClientesComponent},
+
+  {path: 'productoscrud', component: ProductosCrudComponent},
+  {path: 'formcrudproductos', component: ProductosCrudFormComponent},
+  {path: 'formcrudproductos/:id', component: ProductosCrudFormComponent},
+
+  
+
+  {path: 'login', component: Login2Component},
+
 
 
   {path: 'cart-details', component: CartDetailsComponent},

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/common/cart-item';
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
+import { Cliente } from '../clientes/cliente';
+import { catchError, Observable, throwError } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cart-details',
@@ -13,7 +17,15 @@ export class CartDetailsComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router, public authService: AuthService) { }
+
+  private isNoAutorizado(e):boolean{
+    if(e.status==401 || e.status==403){
+      this.router.navigate(["/login"]);
+      return true;
+    }
+    return false;
+  }
 
   ngOnInit(): void {
     this.listCartDetails();
@@ -45,4 +57,7 @@ export class CartDetailsComponent implements OnInit {
     this.cartService.remove(theCartItem);
   }
 
+  onSubmit(){
+    this.router.navigate(["/products"])
+  }
 }

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { Producto } from "../common/producto";
 import { ProductCategory } from '../common/product-category';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +16,50 @@ export class ProductoServicioService {
 
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
+  private productoUrl = 'http://localhost:8080/api/productos'
 
-  constructor(private httpClient: HttpClient) {
+  private caegoriaoUrl = 'http://localhost:8080/api/productos/categorias'
+
+
+  constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
+  }
+
+  private isNoAutorizado(e):boolean{
+    if(e.status==401 || e.status==403){
+
+        if (this.authService.isLogged()) {
+            this.authService.logout();
+        }
+
+      this.router.navigate(["/login"]);
+      return true;
+    }
+    return false;
+  }
+
+
+  getProductos():Observable<Producto[]>{
+    return this.httpClient.get<Producto[]>(this.productoUrl+'/listar');
+  }
+
+  getCategoria():Observable<ProductCategory[]>{
+    return this.httpClient.get<ProductCategory[]>(this.productoUrl+'/categorias');
+  }
+
+  crearProducto(producto: Producto):Observable<Producto>{
+    return this.httpClient.post<Producto>(this.productoUrl+'/crear', producto);
+  }
+
+  obtenerProductosId(id: number):Observable<Producto>{
+    return this.httpClient.get<Producto>(this.productoUrl+'/'+id);
+  }
+
+  actualizarProducto(producto: Producto):Observable<Producto>{
+    return this.httpClient.put<Producto>(this.productoUrl+'/actualizar/'+producto.id, producto);
+  }
+
+  eliminarProductos(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.productoUrl+'/eliminar/'+id);
   }
 
   getProduct(theProductId: number): Observable<Producto> {

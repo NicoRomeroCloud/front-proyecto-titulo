@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { Cliente } from "./cliente";
 import { ClienteService } from "./cliente.service";
 import { ModalService } from "src/app/services/modal.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
     selector: 'app-clientes',
@@ -15,9 +16,11 @@ export class ClientesComponent implements OnInit{
 
     clienteSeleccionado:Cliente;
 
-    constructor(private clienteService: ClienteService, private modalService: ModalService) {
+    constructor(private clienteService: ClienteService, private modalService: ModalService, public authService: AuthService) {
         
     }
+
+    
 
     ngOnInit() {
         this.clienteService.getClientes().subscribe(

@@ -1,0 +1,17 @@
+<div class="login-status-header">
+    <button *ngIf="!authService.isLogged()" routerLink="/login" class="btn btn-outline-danger" style="background-color: black; color: aliceblue;">Ingresar</button>
+    
+   
+    <!-- <button  (click)="logout()" class="security-btn">Salir</button> -->
+
+    
+</div>
+<div *ngIf="authService.isLogged()" class="dropdown">
+    <a class="btn btn-outline-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="background-color: black; color: aliceblue;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Bienvenido de vuelta {{authService.usuario.username}}!
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <button (click)="logout()" class="dropdown-item" type="submit">SALIR</button>
+    </div>
+  </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class CartStatusComponent implements OnInit {
 
   totalPrice: number = 0;
   totalQuantity: number = 0;
-
+  authService2: AuthService
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
