@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductCategory } from 'src/app/common/product-category';
@@ -6,16 +7,35 @@ import { ProductoServicioService } from 'src/app/services/producto-servicio.serv
 import Swal from 'sweetalert2';
 
 
+
+
+
 @Component({
   selector: 'app-productos-crud',
   templateUrl: './productos-crud.component.html',
-  styleUrls: ['./productos-crud.component.css']
+  styleUrls: ['./productos-crud.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
+
 export class ProductosCrudComponent implements OnInit {
+
+  
+
+  displayedColumns: string[] = ['id', 'Sku', 'Nombre', 'Categoria','description', 'unitPrice', 'imageUrl', 'active', 'unitsInStock', 'dateCreated', 'lastUpdated'];
+  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
+  expandedElement: Producto | null;
 
   producto: Producto[];
 
   categoria: ProductCategory;
+
+  
 
   constructor(private productoService: ProductoServicioService, private route: ActivatedRoute) { }
 
@@ -63,5 +83,7 @@ export class ProductosCrudComponent implements OnInit {
 
   }
   
+
+
 
 }

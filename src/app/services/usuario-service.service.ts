@@ -16,18 +16,35 @@ export class UsuarioServiceService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  crearUser(user: Usuario):Observable<Usuario>{
+  crearUser(user: any):Observable<Usuario>{
+    console.log(user);
+    
+    const obj = {
+      nombre: user.nombre,
+      apellido: user.apellido,
+      username: user.username,
+      password: user.password,
+      roles: [
+        {
+          id: 2
+          
+        }
+      ],
+      enabled: 1,
+      email: user.email
+    }
 
-   
-
-    return this.http.post<Usuario>(this.url+'/register', user);
+    console.log(obj);
+    return this.http.post<Usuario>(this.url+'/register', obj);
+    
+    
   }
 
-  crearRol(rol: Role):Observable<Role>{
+  // crearRol(rol: Role):Observable<Role>{
 
-    return this.http.post<Role>(this.urlRol+'/rol', rol);
+  //   return this.http.post<Role>(this.urlRol+'/rol', rol);
 
-  }
+  // }
 
 
 }

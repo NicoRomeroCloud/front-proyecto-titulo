@@ -44,7 +44,13 @@ import { ProductosCrudComponent } from './components/productos-crud/productos-cr
 import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 
-
+import { MatSliderModule } from "@angular/material/slider";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -84,9 +90,16 @@ const oktaAuth = new OktaAuth(oktaConfig);
     MatButtonModule,
     MatStepperModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
-  providers: [ProductoServicioService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
+  providers: [ProductoServicioService],
   bootstrap: [AppComponent]
 })
 

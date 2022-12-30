@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class Login2Component implements OnInit {
 
-  titulo:string= "Por favor, inicia sesión para acceder a la compra de productos, ¿Genail? ¿no?"
+  hide = true;
+
+  titulo:string= "Inicia sesión para acceder a la compra de productos, ¿genail? ¿no?"
   usuario:Usuario;
   constructor( private authService: AuthService, private router: Router) {
     this.usuario = new Usuario();

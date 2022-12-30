@@ -3,18 +3,14 @@
 <br>
 <br>
 
-<div class="container text-center">
-    <div class="card border-primary">
 
-        <div class="card-header">{{titulo}}
-        </div>
     
-        <div class="card-body">
     
-            <form method="post">
+            <!-- <form method="post">
     
                 <div class="form-group col-sm-6">
                     <input [(ngModel)]="usuario.username" type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario" autofocus required>
+                
                 </div>
     
                 <div class="form-group col-sm-6">
@@ -25,13 +21,31 @@
                     <input (click)="login()" type="button" class="btn btn-lg btn-primary btn-block" value="Login">
                 </div>
     
-            </form>
-                <div>
-                    No estas registrado? <a routerLink="/register"> Registrate aquí </a>
-                </div>
-        </div>
-    
-    </div>
-
-    
-</div>
+            </form> -->
+            
+            
+            <mat-card class="body">
+                
+                <mat-card-content class="login">
+                    <h3>{{titulo}}</h3>
+                    <img src="../../../assets/images/login.png" alt="login" width="70%">
+                   <form method="post">
+                    <mat-form-field appearance="fill"  style="width: 80%;" >
+                        <mat-label>Nombre de Usuario</mat-label>
+                        <input matInput autocomplete="off" [(ngModel)]="usuario.username" type="text" name="username" id="username" required>
+                      </mat-form-field>
+                      <mat-form-field appearance="fill"  style="width: 80%;">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.password" name="password" id="password" placeholder="Contraseña" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        </mat-form-field>
+                      <button (click)="login()" value="Login" mat-raised-button color="primary" class="form-group col-sm-3" style="width: 80%; align-items: center;" >Ingresar</button>
+                      <div>
+                        No estas registrado? <a routerLink="/register"> Registrate aquí </a>
+                    </div>
+                   </form>
+                </mat-card-content>
+                
+            </mat-card>

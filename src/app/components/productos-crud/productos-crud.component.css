@@ -1,0 +1,77 @@
+table {
+    width: 100%;
+  }
+
+  
+.mat-column-id {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  
+  .mat-column-Sku {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-Nombre {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-Categoria {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-description {
+    width: 100px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-unitPrice {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .mat-column-imageUrl {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .mat-column-active {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-unitsInStock {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-dateCreated {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .mat-column-lastUpdated {
+    width: 10px;
+    border-right: 0.5px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+ 

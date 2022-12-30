@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginFormComponent implements OnInit {
 
+  hide = true;
+
   usuario: Usuario = new Usuario();
 
   constructor( private userService: UsuarioServiceService, private router: Router ) { }
