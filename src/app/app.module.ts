@@ -51,6 +51,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
+import { LinkperfilComponent } from './components/linkperfil/linkperfil.component';
+import { FormeditarComponent } from './components/formeditar/formeditar.component';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -79,6 +82,9 @@ const oktaAuth = new OktaAuth(oktaConfig);
     ProductosCrudComponent,
     ProductosCrudFormComponent,
     LoginFormComponent,
+    PerfilusuarioComponent,
+    LinkperfilComponent,
+    FormeditarComponent,
 
   ],
   imports: [

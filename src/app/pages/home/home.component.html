@@ -22,9 +22,13 @@
 
     <div class="categories">
         <div class="small-container">
+            <br>
             <div class="row">
                 <div class="col-3" *ngFor="let temProductCategory of productCategories">
-                    <a routerLink="/category/{{ temProductCategory.id }}" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/png.png" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 1" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/png.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 2" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/interior.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 3" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/exterior.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 4" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/a.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
                     
                
                 </div>

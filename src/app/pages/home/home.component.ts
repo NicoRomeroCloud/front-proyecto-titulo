@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { ProductCategory } from 'src/app/common/product-category';
 import { Producto } from 'src/app/common/producto';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductoServicioService } from 'src/app/services/producto-servicio.service';
 import Swal from 'sweetalert2';
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   
   previousKeyword: string = null;
 
-  constructor(private productoService: ProductoServicioService, private productService: ProductoServicioService,
+  constructor(private authService:AuthService, private productoService: ProductoServicioService, private productService: ProductoServicioService,
     private route: ActivatedRoute,
     private cartService: CartService) { 
 
@@ -144,7 +145,9 @@ export class HomeComponent implements OnInit {
       'Producto añadido!',
       '',
       'success'
+      
     )
+    console.log("hola----"+this.authService.usuario.id);
 
   }
 

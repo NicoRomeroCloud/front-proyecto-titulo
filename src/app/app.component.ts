@@ -1,17 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Usuario } from './common/usuario';
 import { AuthService } from './services/auth.service';
+import { UsuarioServiceService } from './services/usuario-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'angular-ecommerce';
 
-  authService2 : AuthService;
+  usuario2:Usuario[];
 
-  constructor(){
+  constructor( private activatedRoute: ActivatedRoute, public authService: AuthService, private usuarioService: UsuarioServiceService){
+
+    
+
+
+  }
+
+  ngOnInit(){
+
+    this.usuarioService.getUsuarios().subscribe(
+      usuario => this.usuario2 = usuario
+  );
 
     
 

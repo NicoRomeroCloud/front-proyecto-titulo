@@ -63,7 +63,9 @@
                             <p><b>Envío a domicilio: GRATIS</b></p>
                             <P><b>Precio total: ${{totalPrice | currency:'CLP'}}</b></P>
                             <a *ngIf="authService.hasRole('ROLE_USER')" routerLink="/checkout" class="btn btn-primary">Verificar</a>
-                            <h1 *ngIf="!authService.hasRole('ROLE_USER')">Para pasar al formulario de compra por favor inicia sesión!</h1>
+                            <div class="alert alert-danger" *ngIf="!authService.hasRole('ROLE_USER')">
+                                Para pasar al formulario de compra por favor inicia sesión!
+                            </div>
                         </td>
 
                     </tr>

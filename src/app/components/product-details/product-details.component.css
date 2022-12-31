@@ -1,13 +1,6 @@
 /*********************************************/
 /*COLORS*/
 /*********************************************/
-img {
-  height: auto;
-  margin-top: 20px;
-  margin-left: 15px;
-  max-width: calc(140% - 2px);
-}
-
 ul {
   margin: 0;
   padding: 0;

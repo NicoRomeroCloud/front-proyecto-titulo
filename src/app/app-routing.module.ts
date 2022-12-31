@@ -13,6 +13,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { ProductosCrudComponent } from './components/productos-crud/productos-crud.component';
 import { ProductosCrudFormComponent } from './components/productos-crud-form/productos-crud-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
+import { FormeditarComponent } from './components/formeditar/formeditar.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -22,11 +24,19 @@ const routes: Routes = [
   {path: 'clientes/form/:id', component: FormClientesComponent},
 
   {path: 'register', component: LoginFormComponent},
+  
+  {path: 'perfilusuario/:id', component: PerfilusuarioComponent},
+
+  {path: 'perfilusuario/form/:id', component: FormeditarComponent},
 
 
+
+  
   {path: 'productoscrud', component: ProductosCrudComponent},
   {path: 'formcrudproductos', component: ProductosCrudFormComponent},
   {path: 'formcrudproductos/:id', component: ProductosCrudFormComponent},
+
+
 
   
 

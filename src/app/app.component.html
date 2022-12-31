@@ -30,10 +30,14 @@
                    <ul class="navbar-nav navbar-rigth" style="margin-top: 4%;">
                     
                         <li><a href="">Home</a></li>
-                        <li><a routerLink="/products">Productos</a></li>
-                        <li><a routerLink="/clientes">Clientes</a></li>
+                        <li ><a routerLink="/products">Productos</a></li>
+                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a routerLink="/clientes">Clientes proveedores</a></li>
+                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a routerLink="/productoscrud">Editar productos</a></li>
+
+                      <!-- <li *ngFor="let user of usuario2"><a *ngIf="user.id == usuario.id" [routerLink]="['/perfilusuario', user.id]">Su perfil</a></li> -->
+                       
+
                         <li><a href="">Contact</a></li>
-                        <li><a href="">Cuenta</a></li>
                         
                    </ul>
                 </nav>

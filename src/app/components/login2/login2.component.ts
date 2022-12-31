@@ -38,7 +38,15 @@ export class Login2Component implements OnInit {
 
   this.authService.login(this.usuario).subscribe(response => {
     console.log(response);
-    this.router.navigateByUrl('/clientes');
+
+    if (this.usuario.roles.includes("ROLE_ADMIN")) {
+      this.router.navigateByUrl('/clientes');
+      
+    }else{
+      this.router.navigateByUrl('/home');
+
+    }
+
 
    
 

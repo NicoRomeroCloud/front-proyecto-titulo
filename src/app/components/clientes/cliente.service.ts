@@ -20,7 +20,18 @@ export class ClienteService {
     constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
     
     private isNoAutorizado(e):boolean{
-        if(e.status==401 || e.status==403){
+        if(e.status==401){
+
+            if (this.authService.isLogged()) {
+                this.authService.logout();
+            }
+
+          this.router.navigate(["/login"]);
+          return true;
+        }
+        if(e.status==403){
+
+            Swal.fire('Acceso denegado', `Hola ${this.authService.usuario.username}, no tienes acceso a este recurso!`, 'warning')
 
             if (this.authService.isLogged()) {
                 this.authService.logout();
@@ -41,7 +52,7 @@ export class ClienteService {
         return this.httHeaders;
       }
 
-        getClientes(): Observable<Cliente[]>{
+    getClientes(): Observable<Cliente[]>{
 
             return this.http.get(this.url).pipe(
                 map( (response) => response as Cliente[] )

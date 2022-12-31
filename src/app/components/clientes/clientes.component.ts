@@ -27,6 +27,8 @@ export class ClientesComponent implements OnInit{
             clientes => this.clientes = clientes
         );
 
+        
+
         this.modalService.notificarUpload.subscribe(cliente => {
           this.clientes = this.clientes.map(clienteOriginal => {
             if (cliente.id == clienteOriginal.id) {
