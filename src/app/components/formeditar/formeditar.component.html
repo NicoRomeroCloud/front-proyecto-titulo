@@ -6,4 +6,61 @@
 <br>
 <br>
 <br>
-<p>formeditar works!</p>
+    <h2 *ngIf="usuario.id">Editar su perfil</h2>
+
+<div class="card bg-dark text-white">
+    
+    <div class="card-header"></div>
+    <div class="card-body">
+
+        <form >
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6">
+                     <input type="text" class="form-control" [(ngModel)]="usuario.nombre"  name="nombre"  placeholder="Ingrese su nuevo nombre al sistema"><!-- required minlength="4" -->
+                     
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-form-label col-sm-2">Apellido</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido"  ><!-- required  -->
+                    
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-form-label col-sm-2">Username</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username"  ><!-- required category -->
+                    
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="unitPrice" class="col-form-label col-sm-2">Contraseña</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" [(ngModel)]="usuario.password" name="unitPrice"  ><!-- required category -->
+                    
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="unitsInStock" class="col-form-label col-sm-2">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email"  ><!-- required category -->
+                    
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-ms-6">
+                    <button class="btn btn-primary" role="button" (click)="updateUser()" *ngIf="usuario.id">Guardar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

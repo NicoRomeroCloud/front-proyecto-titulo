@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/common/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formeditar',
@@ -34,6 +35,8 @@ export class FormeditarComponent implements OnInit {
   updateUser(){
     this.usuarioService.update(this.usuario).subscribe(
       json => {
+      Swal.fire('Éxito al editar', 'Perfil actualizado correctamente', 'success');
+
       this.router.navigate(['/perfilusuario/'+this.authService.usuario.id])
 
       }
