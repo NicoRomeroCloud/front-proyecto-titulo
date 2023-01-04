@@ -54,6 +54,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
 import { LinkperfilComponent } from './components/linkperfil/linkperfil.component';
 import { FormeditarComponent } from './components/formeditar/formeditar.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -85,6 +86,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
     PerfilusuarioComponent,
     LinkperfilComponent,
     FormeditarComponent,
+    OrderHistoryComponent,
 
   ],
   imports: [

@@ -15,6 +15,7 @@ import { ProductosCrudFormComponent } from './components/productos-crud-form/pro
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
 import { FormeditarComponent } from './components/formeditar/formeditar.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -36,12 +37,9 @@ const routes: Routes = [
   {path: 'formcrudproductos', component: ProductosCrudFormComponent},
   {path: 'formcrudproductos/:id', component: ProductosCrudFormComponent},
 
-
-
-  
+  {path: 'order-history', component: OrderHistoryComponent},
 
   {path: 'login', component: Login2Component},
-
 
 
   {path: 'cart-details', component: CartDetailsComponent},

@@ -29,15 +29,11 @@
                     </ul>
                    <ul class="navbar-nav navbar-rigth" style="margin-top: 4%;">
                     
-                        <li><a href="">Home</a></li>
-                        <li ><a routerLink="/products">Productos</a></li>
-                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a routerLink="/clientes">Clientes proveedores</a></li>
-                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a routerLink="/productoscrud">Editar productos</a></li>
-
-                      <!-- <li *ngFor="let user of usuario2"><a *ngIf="user.id == usuario.id" [routerLink]="['/perfilusuario', user.id]">Su perfil</a></li> -->
-                       
-
-                        <li><a href="">Contact</a></li>
+                        <li><a href="" style="text-decoration: none;">Home</a></li>
+                        <li ><a routerLink="/products" style="text-decoration: none;">Productos</a></li>
+                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/clientes">Clientes proveedores</a></li>
+                        <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/productoscrud">Editar productos</a></li>
+                        <li *ngIf="authService.hasRole('ROLE_USER')"><a style="text-decoration: none;" href="">Contact</a></li>
                         
                    </ul>
                 </nav>
@@ -71,20 +67,20 @@
     <div class="container">
         <div class="row">
             <div class="footer-col-1">
-                <h3>Descarga la app</h3>
+                <h3>Visítanos!</h3>
                 <div class="app-logo">
-                    <img src="img/png.png" alt="">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3201.9589148503014!2d-72.07980548412553!3d-36.627375574861595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966929b8c145ebcd%3A0xed0b414116a5e489!2sPje.%20Niquen%202795%2C%203790999%20Niquen%2C%20Chillan%2C%20%C3%91uble!5e0!3m2!1ses-419!2scl!4v1672777318713!5m2!1ses-419!2scl" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="footer-col-2">
-                <img src="img/png.png">
+                <img style="width: 80px;" src="../assets/images/png.png">
                 <p>Nuestro propósito es llevar estos productos hasta donde estes,
                     y hacer accesible plantas maravillosas a todo el mundo.
                 </p>
 
             </div>
             <div class="footer-col-3">
-                <h3>Enlaces útiles</h3>
+                <h3 style="margin-left: 40px;">Enlaces útiles</h3>
                 <ul>
                     <li>Cupones</li>
                     <li>Blog</li>
@@ -93,7 +89,7 @@
                 </ul>
             </div>
             <div class="footer-col-4">
-                <h3>Síguenos</h3>
+                <h3 style="margin-left: 30px;">Síguenos en:</h3>
                 <ul>
                     <li>Facebook</li>
                     <li>Twitter</li>

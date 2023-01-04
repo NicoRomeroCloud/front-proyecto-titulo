@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCategory } from 'src/app/common/product-category';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductoServicioService } from 'src/app/services/producto-servicio.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductCategoryMenuComponent implements OnInit {
 
   productCategories: ProductCategory[] = [];
 
-  constructor(private productoService: ProductoServicioService) { 
+  constructor(private productoService: ProductoServicioService, public authService: AuthService) { 
 
    }
 

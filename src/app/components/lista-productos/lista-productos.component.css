@@ -121,3 +121,9 @@
 .wrapper .inside .contents p {
   font-size: 13px;
 }/*# sourceMappingURL=lista-productos.component.css.map */
+
+.page-container{
+  background:#e5e5e5;
+  padding-left:230px;
+  padding-right: 30px;
+}

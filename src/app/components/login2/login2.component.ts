@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class Login2Component implements OnInit {
 
+  storage: Storage = sessionStorage;
+
   hide = true;
 
   titulo:string= "Inicia sesión para acceder a la compra de productos, ¿genail? ¿no?"
@@ -55,6 +57,10 @@ export class Login2Component implements OnInit {
     this.authService.guardarToken(response.access_token);
 
     let usuario = this.authService.usuario;
+
+
+    this.storage.setItem('userEmail', JSON.stringify(usuario.email));
+
 
     Swal.fire('Login', `Hola ${usuario.nombre} ${usuario.apellido}, has iniciado sesión con éxito!`, 'success');
   },err =>{

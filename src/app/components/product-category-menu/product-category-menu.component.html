@@ -7,5 +7,12 @@
             </li>
             
         </ul>
+
+        <ul>
+            <li *ngIf="authService.hasRole('ROLE_USER')">
+                <button  routerLink="/order-history" class="security-btn ml-1">Pedidos</button>
+            </li>
+
+        </ul>
     </nav>
 </div>

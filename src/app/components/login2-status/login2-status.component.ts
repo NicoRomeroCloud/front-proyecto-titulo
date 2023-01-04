@@ -22,21 +22,26 @@ export class Login2StatusComponent implements OnInit {
   user: any;
  user2: any;
 
+ email: any;
+
+
   constructor( private activatedRoute: ActivatedRoute, public authService: AuthService, private router: Router, private usuarioService: UsuarioServiceService) { }
+
+
+  
 
   ngOnInit(){
     
-
-
+    
     
   }
 
   logout():void{
 
-    Swal.fire('Logout', `Hola ${this.authService.usuario.username}, has cerrado sesión de manera correcta`, 'success');
+    Swal.fire('Logout', `Estimado ${this.authService.usuario.username}, has cerrado sesión de manera correcta, vuelve pronto!`, 'success');
     this.authService.logout();
 
-    this.router.navigateByUrl('/products');
+    this.router.navigateByUrl('/home');
 
   }
 

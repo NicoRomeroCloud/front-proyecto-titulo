@@ -46,9 +46,9 @@
             <div class="col-4" >
                 <div *ngFor="let tempProduct of products; let indice = index">
                     
-                    <img *ngIf="indice === 1" src="{{tempProduct.imageUrl}}">
-                <h4 *ngIf="indice === 1">{{tempProduct.name}}</h4>
-                <div class="rating" *ngIf="indice === 1">
+                    <img  src="{{tempProduct.imageUrl}}">
+                <h4 >{{tempProduct.name}}</h4>
+                <div class="rating" >
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>

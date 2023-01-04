@@ -1,6 +1,10 @@
 <link rel="stylesheet/scss"  href="lista-productos.component.scss">
-<div class="main-content">
-    <div class="section-content section-content-p30">
+
+
+
+<div class="main-content" style="margin-left: -200px;">
+    <div class="page-container">
+      <div class="section-content section-content-p30">
 
         <div class="container-fluid">
             <div class="row">
@@ -34,14 +38,15 @@
                         
                         <div class="container">
                           <div class="top">
-                            <a routerLink="/products/{{tempProduct.id}}">
-                                <img src="{{tempProduct.imageUrl}}" >
-                            </a>
                             <div>
-                                <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
-                                    <h1>{{ tempProduct.name }}</h1>
-                                </a>
-                            </div>
+                              <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
+                                  <h1>{{ tempProduct.name }}</h1>
+                              </a>
+                          </div>
+                            <a routerLink="/products/{{tempProduct.id}}">
+                                <img src="{{tempProduct.imageUrl}}" class="img-thumbnail rounded" style="width: 500px; cursor: pointer; margin-top: -15px;">
+                            </a>
+                            
                           </div>
 
                           <div class="bottom">
@@ -152,5 +157,6 @@
             <!-- fin footer -->
 
         </div>
+    </div>
     </div>
 </div>
