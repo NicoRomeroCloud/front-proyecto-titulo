@@ -52,7 +52,7 @@ export class UsuarioServiceService {
       password: user.password,
       roles: [
         {
-          id: 1
+          id: 2
           
         }
       ],

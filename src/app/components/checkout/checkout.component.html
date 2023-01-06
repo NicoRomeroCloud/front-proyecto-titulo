@@ -451,6 +451,8 @@
                                 <!-- <button type="submit" class="btn btn-success">Comprar</button> -->
                                 <button type="submit" class="btn btn-success" [disabled]="checkoutFormGroup.invalid || totalPrice === 0 || totalQuantity === 0" (click)="onSubmit()">Comprar</button>
                                 
+                                <ngx-paypal [config]="payPalConfig" (click)="onSubmit()"></ngx-paypal>
+
                             </div>
                         </div>
             

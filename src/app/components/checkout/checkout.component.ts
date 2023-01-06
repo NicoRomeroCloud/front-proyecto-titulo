@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal/public_api';
 import { catchError, throwError } from 'rxjs';
+import { CartItem } from 'src/app/common/cart-item';
 import { Country } from 'src/app/common/country';
 import { Order } from 'src/app/common/order';
 import { OrderItem } from 'src/app/common/order-item';
+import { Producto } from 'src/app/common/producto';
 import { Purchase } from 'src/app/common/purchase';
 import { State } from 'src/app/common/state';
 import { CartService } from 'src/app/services/cart.service';
@@ -25,9 +28,13 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
+ 
+
 
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
+
+  cartItems: CartItem[] = [];
 
   countries: Country[] = [];
   shippingAddresStates: State[] = [];
@@ -40,6 +47,8 @@ export class CheckoutComponent implements OnInit {
     secondCtrl: ['', Validators.required],
   });
   isLinear = false;
+
+  public payPalConfig ?: IPayPalConfig;
 
   constructor(private formBuilder: FormBuilder,
               private shopFormService: ShopFormMySPlantasService,
@@ -145,7 +154,87 @@ export class CheckoutComponent implements OnInit {
         this.countries = data;
       }
     );
+
+    this.initConfig();
+
   }
+
+  private initConfig(): void {
+    this.payPalConfig = {
+        currency: 'USD',
+        clientId: 'AcoluBHWBx0HqmdP0dE5-lDWMU15xi6UColezDKXPC3bllMYWxFIcEJsbXJDeMikPUpTyUyvvax-le2I',
+        createOrderOnClient: (data) => < ICreateOrderRequest > {
+            intent: 'CAPTURE',
+            purchase_units: [{
+                amount: {
+                    currency_code: 'USD',
+                    value: this.totalPrice.toString(),
+                    breakdown: {
+                        item_total: {
+                            currency_code: 'USD',
+                            value: this.totalPrice.toString()
+                        }
+                    }
+                },
+                items: this.getItemsList()
+            }]
+        },
+        advanced: {
+            commit: 'true'
+        },
+        style: {
+            label: 'paypal',
+            layout: 'vertical'
+        },
+        onApprove: (data, actions) => {
+            console.log('onApprove - transaction was approved, but not authorized', data, actions);
+            actions.order.get().then(details => {
+                console.log('onApprove - you can get full order details inside onApprove: ', details);
+            });
+
+        },
+        onClientAuthorization: (data) => {
+            console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+           this.onSubmit();
+        },
+        onCancel: (data, actions) => {
+            console.log('OnCancel', data, actions);
+         
+
+        },
+        onError: err => {
+            console.log('OnError', err);
+           
+        },
+        onClick: (data, actions) => {
+            console.log('onClick', data, actions);
+          
+        }
+    };
+
+    
+}
+
+  getItemsList(): any[]{
+    const items: any = [];
+    let item = {};
+
+    for(let tempCartItem of this.cartItems){
+      item = {
+        name: tempCartItem.name,
+        quantity: tempCartItem.quantity,
+        unit_amount: {currency_code: 'USD', value: tempCartItem.unitPrice}
+        
+      };
+    console.log('HOLA DESDE ITEM LISTA XDDD'+ tempCartItem.name);
+    console.log(this.cartService.totalPrice+'PRECIO DISEEEEEEEEEEEEN')
+
+      items.push(item);
+    }
+    return items;
+  }
+
+
   reviewCartDetails() {
   
     this.cartService.totalQuantity.subscribe(

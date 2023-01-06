@@ -1,6 +1,6 @@
 // import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 import { AppComponent } from './app.component';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
@@ -56,6 +56,10 @@ import { LinkperfilComponent } from './components/linkperfil/linkperfil.componen
 import { FormeditarComponent } from './components/formeditar/formeditar.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 const oktaConfig = myAppConfig.oidc;
 
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -105,10 +109,13 @@ const oktaAuth = new OktaAuth(oktaConfig);
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPayPalModule,
+    NgxSpinnerModule
   ],
   providers: [ProductoServicioService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 export class AppModule { }
