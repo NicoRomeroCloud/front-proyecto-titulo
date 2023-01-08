@@ -1,208 +1,220 @@
 <div class="main-content">
 
     <div class="header">
-    <div class="container">
+        <div class="container">
 
-    
-        <div class="row">
-            <div class="col-2">
-                <h1>La belleza del hogar <br> se refleja en el jardín!</h1>
-                <p>El éxito no siempre es grandeza. Se trata de consistencia. <br>
-                    El trabajo duro constante gana el éxito. 
-                    La grandeza vendrá</p>
+
+            <div class="row">
+                <div class="col-2">
+                    <h1>La belleza del hogar <br> se refleja en el jardín!</h1>
+                    <p>El éxito no siempre es grandeza. Se trata de consistencia. <br>
+                        El trabajo duro constante gana el éxito.
+                        La grandeza vendrá</p>
                     <a routerLink="/products" class="btn">Explora ahora &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="../../../assets/images/png.png" alt="">
+                </div>
             </div>
-            <div class="col-2">
-                <img src="../../../assets/images/png.png" alt="">
-            </div>
+        </div>
     </div>
-</div>
-</div>
-<!-- categorias destacadas -->
+    <!-- categorias destacadas -->
 
     <div class="categories">
         <div class="small-container">
             <br>
             <div class="row">
                 <div class="col-3" *ngFor="let temProductCategory of productCategories">
-                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 1" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/png.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
-                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 2" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/interior.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
-                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 3" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/exterior.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
-                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 4" routerLinkActive="active-link" style="text-decoration: none;"><img src="../../../assets/images/a.jpg" alt=""><h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1></a>
-                    
-               
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 1"
+                        routerLinkActive="active-link" style="text-decoration: none;"><img
+                            src="../../../assets/images/png.jpg" alt="">
+                        <h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1>
+                    </a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 2"
+                        routerLinkActive="active-link" style="text-decoration: none;"><img
+                            src="../../../assets/images/interior.jpg" alt="">
+                        <h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1>
+                    </a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 3"
+                        routerLinkActive="active-link" style="text-decoration: none;"><img
+                            src="../../../assets/images/exterior.jpg" alt="">
+                        <h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1>
+                    </a>
+                    <a routerLink="/category/{{ temProductCategory.id}}" *ngIf="temProductCategory.id == 4"
+                        routerLinkActive="active-link" style="text-decoration: none;"><img
+                            src="../../../assets/images/a.jpg" alt="">
+                        <h1 style="text-align: center;">{{ temProductCategory.categoryName }}</h1>
+                    </a>
+
+
                 </div>
-                
-    
+
+
             </div>
         </div>
     </div>
 
-<!-- productos destacados -->
+    <!-- productos destacados -->
 
-<div class="small-container">
-    <h2 class="title">Productos destacados</h2>
-    <div class="row" >
-            <div class="col-4" >
-                <div *ngFor="let tempProduct of products; let indice = index">
-                    
-                    <img  src="{{tempProduct.imageUrl}}">
-                <h4 >{{tempProduct.name}}</h4>
-                <div class="rating" >
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p *ngIf="indice === 1">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
-                </div>
-            </div>
-            <div class="col-4" >
-                
-                <div *ngFor="let tempProduct of products; let indice = index">
-                    <img *ngIf="indice === 2" src="{{tempProduct.imageUrl}}">
-                <h4 *ngIf="indice === 2">{{tempProduct.name}}</h4>
-                <div class="rating" *ngIf="indice === 2">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p *ngIf="indice === 2">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
-                </div>
-            </div>
-            
-            <div class="col-4" >
-                
-                <div *ngFor="let tempProduct of products; let indice = index">
-                    <img *ngIf="indice === 3" src="{{tempProduct.imageUrl}}">
-                <h4 *ngIf="indice === 3">{{tempProduct.name}}</h4>
-                <div class="rating" *ngIf="indice === 3">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p *ngIf="indice === 3">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
-                </div>
-            </div>
-            <div class="col-4" >
-                
-                <div *ngFor="let tempProduct of products; let indice = index">
-                    <img *ngIf="indice === 4" src="{{tempProduct.imageUrl}}">
-                <h4 *ngIf="indice === 4">{{tempProduct.name}}</h4>
-                <div class="rating" *ngIf="indice === 4">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-    
-    
-                </div>
-                <p *ngIf="indice === 4">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
-                </div>
-            </div>
-            
-        </div>
-        <h2 class="title">últimos Productos</h2>
-            <div class="row">
-                <div class="col-4" >
-                
-                    <div *ngFor="let tempProduct of products; let indice = index">
-                        <img *ngIf="indice === 0" src="{{tempProduct.imageUrl}}">
-                    <h4 *ngIf="indice === 0">{{tempProduct.name}}</h4>
-                    <div class="rating" *ngIf="indice === 0">
+    <div class="small-container">
+        <h2 class="title">Productos destacados</h2>
+        <div class="row">
+            <div class="col-4">
+                <div>
+                    <img src="../../../assets/images/home1.jpg">
+                    <h4> Gardenias</h4>
+                    <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
-        
-        
                     </div>
-                    <p *ngIf="indice === 0">{{tempProduct.unitPrice | currency: 'CLP'}}</p>
-                    </div>
+                    <p>$10.000CLP</p>
                 </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    <img src="../../../assets/images/home2.jpg">
+                    <h4>Cala Negra</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$15.000CLP</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    <img src="../../../assets/images/home3.jpg">
+                    <h4>Verbena Hybrida Colgante</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$5.000CLP</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    <img src="../../../assets/images/home4.jpg">
+                    <h4>Rosas moradas</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$6.000CLP</p>
+                </div>
+            </div>
         </div>
-        
 
-</div>
-
-<!-- OFERTASSSSSSSSSSSSSSS -->
-
-<div class="offer">
-    <div class="small-container">
+        <h2 class="title">últimos Productos</h2>
         <div class="row">
-            <div class="col-2">
-                <img src="../../../assets/images/products/books/suegra.png" class="oferr-img">
-            </div>
-            <div class="col-2">
-                <p>Exclusivo solo en MyS Plantas y Suculentas Chillán</p>
-                <h1>Suculenta Lengua de Dragón</h1>
-                <small>Dracaena trifasciata es una especie del género Dracaena originaria del oeste de África tropical hasta Nigeria y al este de República Democrática del Congo. En el 2017 las especies del género Sansevieria fueron incluidas en el género Dracaena con base en estudios moleculares de su filogenia.​​​</small>
-                <a routerLink="/products/6" class="btn">Comprar ahora  &#8594;</a>
-            </div>
+            <div class="col-4" *ngFor="let tempProduct of products">
 
+                <div>
+                    <img src="{{tempProduct.imageUrl}}">
+                    <h4>{{tempProduct.name}}</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+
+
+                    </div>
+                    <p>{{tempProduct.unitPrice | currency: 'CLP'}}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- OFERTASSSSSSSSSSSSSSS -->
+
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="../../../assets/images/products/books/suegra.png" class="oferr-img">
+                </div>
+                <div class="col-2">
+                    <p>Exclusivo solo en MyS Plantas y Suculentas Chillán</p>
+                    <h1>Suculenta Lengua de Dragón</h1>
+                    <small>Dracaena trifasciata es una especie del género Dracaena originaria del oeste de África
+                        tropical hasta Nigeria y al este de República Democrática del Congo. En el 2017 las especies del
+                        género Sansevieria fueron incluidas en el género Dracaena con base en estudios moleculares de su
+                        filogenia.​​​</small>
+                    <a routerLink="/products/6" class="btn">Comprar ahora &#8594;</a>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
-<!-- -----------------------testimonoios----------------->
-<div class="testimonial">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit ratione, nihil inventore nisi similique.</p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+    <!-- -----------------------testimonoios----------------->
+    <div class="testimonial">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero
+                        dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit
+                        ratione, nihil inventore nisi similique.</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="img/png.png" alt="">
+                    <h3>Sean Parker</h3>
                 </div>
-                <img src="img/png.png" alt="">
-                <h3>Sean Parker</h3>
-            </div>
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit ratione, nihil inventore nisi similique.</p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero
+                        dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit
+                        ratione, nihil inventore nisi similique.</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="img/png.png" alt="">
+                    <h3>Sean Parker</h3>
                 </div>
-                <img src="img/png.png" alt="">
-                <h3>Sean Parker</h3>
-            </div>
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit ratione, nihil inventore nisi similique.</p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dolore soluta libero
+                        dolores aspernatur aut, eligendi totam aliquam, aperiam mollitia ducimus nemo nam error fugit
+                        ratione, nihil inventore nisi similique.</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="img/png.png" alt="">
+                    <h3>Sean Parker</h3>
                 </div>
-                <img src="img/png.png" alt="">
-                <h3>Sean Parker</h3>
             </div>
         </div>
     </div>
-</div>
 
-<!-- ------------footer--------------->
+    <!-- ------------footer--------------->
 
 </div>

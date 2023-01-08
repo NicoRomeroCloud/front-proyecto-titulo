@@ -7,7 +7,7 @@
       <div class="section-content section-content-p30">
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="margin-top: -2%;">
 
                 <!-- Recorrer la colección de productos -->
 
@@ -40,7 +40,7 @@
                           <div class="top">
                             <div>
                               <a routerLink="/products/{{tempProduct.id}}" style="text-decoration:none ;">
-                                  <h1>{{ tempProduct.name }}</h1>
+                                  <h1 style="font-size: medium;">{{ tempProduct.name }}</h1>
                               </a>
                           </div>
                             <a routerLink="/products/{{tempProduct.id}}">
@@ -106,11 +106,11 @@
 
                 <!-- si el producto no existe, entonces mostrar un mensaje al usuario -->
 
-                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                  <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
 
-                    Producto no encontrado.
+                      Producto no encontrado, disculpe las molestias.
 
-                </div>
+                  </div>
 
             </div>
 

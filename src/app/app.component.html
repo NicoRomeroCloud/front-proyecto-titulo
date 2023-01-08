@@ -30,7 +30,7 @@
                    <ul class="navbar-nav navbar-rigth" style="margin-top: 4%;">
                     
                         <li><a href="" style="text-decoration: none;">Home</a></li>
-                        <li ><a routerLink="/products" style="text-decoration: none;">Productos</a></li>
+                        <li ><a routerLink="/category/1" style="text-decoration: none;">Productos</a></li>
                         <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/clientes">Clientes proveedores</a></li>
                         <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/productoscrud">Editar productos</a></li>
                         <li *ngIf="authService.hasRole('ROLE_USER')"><a style="text-decoration: none;" href="">Contact</a></li>
