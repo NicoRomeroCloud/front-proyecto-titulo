@@ -6,6 +6,14 @@ import { Producto } from 'src/app/common/producto';
 import { ProductoServicioService } from 'src/app/services/producto-servicio.service';
 import Swal from 'sweetalert2';
 
+import pdfMake from 'pdfmake/build/pdfmake'
+import pdfFonts from 'pdfmake/build/vfs_fonts'
+import { OrderHistoryService } from 'src/app/services/order-history.service';
+import { OrderHistory } from 'src/app/common/order-history';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable';
 
 
 
@@ -25,7 +33,7 @@ import Swal from 'sweetalert2';
 
 export class ProductosCrudComponent implements OnInit {
 
-  
+  orderHistory: OrderHistory[] = [];
 
   displayedColumns: string[] = ['id', 'Sku', 'Nombre', 'Categoria','description', 'unitPrice', 'imageUrl', 'active', 'unitsInStock', 'dateCreated', 'lastUpdated'];
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
@@ -35,16 +43,31 @@ export class ProductosCrudComponent implements OnInit {
 
   categoria: ProductCategory;
 
+  storage: Storage = sessionStorage;
+
   
 
-  constructor(private productoService: ProductoServicioService, private route: ActivatedRoute) { }
+  constructor(private orderHistoryService: OrderHistoryService, private productoService: ProductoServicioService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.productoService.getProductos()
     .subscribe(data => this.producto = data);
-    
+   
+    this.handleOrderHistory();
   
   }
+
+  handleOrderHistory() {
+
+    const theEmail = JSON.parse(this.storage.getItem('userEmail'))
+
+    this.orderHistoryService.getOrderHistory('user@user1.cl').subscribe(
+      data=> {
+        this.orderHistory = data._embedded.orders;
+      }
+    )
+  }
+
 
   eliminarProducto(producto: Producto){
     const swalWithBootstrapButtons = Swal.mixin({
@@ -83,6 +106,42 @@ export class ProductosCrudComponent implements OnInit {
 
   }
   
+  createPdf2(){
+
+    const doc = new jsPDF('portrait', 'px', 'a4');
+    this.handleOrderHistory();
+    let body = [];
+
+    this.orderHistory.forEach((orden: OrderHistory ) => {
+      body.push({numero: orden.id,precio: orden.totalPrice, cantidad: orden.totalQuantity, fecha:orden.dateCreated})
+    });
+
+    console.log(body);
+
+    doc.text('Reporte de pagos desde ',30,25);
+
+    autoTable(doc, ({
+      
+      body,
+      columns: [
+        { header: 'Número de orden', dataKey: 'numero' },
+
+        { header: 'Este es el precio', dataKey: 'precio' },
+        { header: 'Este es la cantidad', dataKey: 'cantidad' },
+        { header: 'Fecha de ingreso', dataKey: 'fecha' }, 
+
+
+      ],
+      footStyles: {
+        halign: 'left'
+      }
+    }))
+
+    doc.save('orden.pdf');
+
+
+  }
+
 
 
 

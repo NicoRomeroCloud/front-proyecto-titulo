@@ -59,6 +59,7 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 import { NgxPayPalModule } from 'ngx-paypal';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -91,6 +92,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
     LinkperfilComponent,
     FormeditarComponent,
     OrderHistoryComponent,
+    PdfComponent,
 
   ],
   imports: [
