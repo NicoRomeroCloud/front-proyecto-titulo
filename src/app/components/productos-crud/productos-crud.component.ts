@@ -118,14 +118,13 @@ export class ProductosCrudComponent implements OnInit {
 
     console.log(body);
 
-    doc.text('Reporte de pagos desde ',30,25);
+    doc.text('Reporte de pedidos/ventas VIVERO MYS PLANTAS Y SUCULENTAS ',30,25);
 
     autoTable(doc, ({
       
       body,
       columns: [
         { header: 'Número de orden', dataKey: 'numero' },
-
         { header: 'Este es el precio', dataKey: 'precio' },
         { header: 'Este es la cantidad', dataKey: 'cantidad' },
         { header: 'Fecha de ingreso', dataKey: 'fecha' }, 

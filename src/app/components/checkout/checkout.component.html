@@ -73,7 +73,7 @@
 
                         </div>
                     </mat-step>
-                    <mat-step [stepControl]="shippingAddressStreet && shippingAddressCity && shippingAddressState && shippingAddressZipcode && shippingAddressCountry" label="Direcc. de compra">
+                    <mat-step  label="Direcc. de compra">
                         <div>
                             <br>
                             <!-- direccion de compra -->
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                     </mat-step>
-                    <mat-step [stepControl]="billingAddressStreet && billingAddressCity && billingAddressState && billingAddressZipcode && billingAddressCountry" label="Direcc. de facturación">
+                    <mat-step  label="Direcc. de facturación">
                         <div>
                             
                             <!-- _____ -->
@@ -296,10 +296,10 @@
                         </div>
                     </mat-step>
             
-                    <mat-step [stepControl]="creditCardType && creditCardnameOnCard && creditCardcardNumber && creditCardsecurityCode" label="Tarj. de crédito">
+                    <!-- <mat-step [stepControl]="creditCardType && creditCardnameOnCard && creditCardcardNumber && creditCardsecurityCode" label="Tarj. de crédito">
             
                         <div>
-            <!-- tarjeta de credito -->
+            tarjeta de credito 
             <br>
             <div formGroupName="creditCard" class="form-area">
             
@@ -416,7 +416,7 @@
             </div>
                         </div>
             
-                    </mat-step>
+                    </mat-step> -->
             
                     <mat-step [stepControl]="checkoutFormGroup" label="Detalles de la compra">
             
@@ -449,7 +449,7 @@
                             </div>
                             <div class="text-center" >
                                 <!-- <button type="submit" class="btn btn-success">Comprar</button> -->
-                                <button type="submit" class="btn btn-success" [disabled]="checkoutFormGroup.invalid || totalPrice === 0 || totalQuantity === 0" (click)="onSubmit()">Comprar</button>
+                                <!-- <button type="submit" class="btn btn-success" [disabled]="checkoutFormGroup.invalid || totalPrice === 0 || totalQuantity === 0" (click)="onSubmit()">Comprar</button> -->
                                 
                                 <ngx-paypal [config]="payPalConfig" (click)="onSubmit()"></ngx-paypal>
 

@@ -114,20 +114,20 @@ export class CheckoutComponent implements OnInit {
                   Validators.minLength(2), 
                   MySPlantasValidators.notOnlyWhitespace])
       }),
-      creditCard: this.formBuilder.group({
-        cardType: new FormControl('', 
-        [Validators.required]),
-        nameOnCard: new FormControl('', 
-        [Validators.required, 
-        Validators.minLength(2), 
-        MySPlantasValidators.notOnlyWhitespace]),
-        cardNumber: new FormControl('', 
-        [Validators.required, Validators.pattern('[0-9]{16}')]),
-        securityCode: new FormControl('', 
-        [Validators.required, Validators.pattern('[0-9]{3}')]),
-        expirationMonth: [''],
-        expirationYear: [''],
-      }),
+      // creditCard: this.formBuilder.group({
+      //   cardType: new FormControl('', 
+      //   [Validators.required]),
+      //   nameOnCard: new FormControl('', 
+      //   [Validators.required, 
+      //   Validators.minLength(2), 
+      //   MySPlantasValidators.notOnlyWhitespace]),
+      //   cardNumber: new FormControl('', 
+      //   [Validators.required, Validators.pattern('[0-9]{16}')]),
+      //   securityCode: new FormControl('', 
+      //   [Validators.required, Validators.pattern('[0-9]{3}')]),
+      //   expirationMonth: [''],
+      //   expirationYear: [''],
+      // }),
     });
   
     const startMonth: number = new Date().getMonth() + 1;
@@ -348,7 +348,7 @@ export class CheckoutComponent implements OnInit {
           
 
           Swal.fire({icon: 'success',
-                      title: `Su orden ha sido recibida de manera correcta.\nSu número de seguimiento de orden es: ${response.orderTrackingNumber}`,
+                      title: `Su orden ha sido recibida de manera correcta.\nLos detalles de su orden y estado de pedido será enviado por correo.`,
                       showConfirmButton: true});
         
                       console.log("entrando 2");
@@ -373,7 +373,7 @@ export class CheckoutComponent implements OnInit {
     this.checkoutFormGroup.reset();
 
     //ir a la pagina de productos
-    this.router.navigateByUrl("/productos");
+    this.router.navigateByUrl("/products");
   }
 
   handleMonthsAndYears() {
