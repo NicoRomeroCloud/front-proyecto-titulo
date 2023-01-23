@@ -13,11 +13,11 @@ import { AuthService } from "src/app/services/auth.service";
 )
 export class ClienteService {
 
-    private url:string='http://localhost:8080/api/cliente/clientes';
+    public url:string='http://pacheco.chillan.ubiobio.cl:8084/api/cliente/clientes';
 
-    private httHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+    public httHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
-    constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+    constructor(public http: HttpClient, public router: Router, public authService: AuthService) {}
     
     private isNoAutorizado(e):boolean{
         if(e.status==401){

@@ -109,7 +109,7 @@ a,a:hover{
 .page-wrapper{
     overflow:hidden;
     background:#e5e5e5;
-    padding-bottom:35.4vh
+
 }
 
 .page-container{
@@ -774,7 +774,7 @@ footer{
     background:#232324;
     z-index:1;
     position:relative;
-    text-align:center
+    text-align:center;
 }
 footer li a{
     color:#313131;
@@ -836,6 +836,10 @@ footer ul li{
         padding:10px 0;
         background:#fff
     }
+    .footer{
+        margin-left: -200px;
+    
+        }
     .header-wrap .account-item>.content{
         display:none
     }
@@ -853,7 +857,10 @@ footer ul li{
     }
      .page-wrapper{
         background:#e5e5e5;
-        padding-bottom:12vh
+    }
+    .footer{
+    margin-left: -200px;
+
     }
      .main-content{
         padding-top:50px;

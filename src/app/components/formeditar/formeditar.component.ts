@@ -15,7 +15,7 @@ export class FormeditarComponent implements OnInit {
   public usuario: Usuario = new Usuario();
 
 
-  constructor( private router: Router,private activatedRoute: ActivatedRoute, private usuarioService: UsuarioServiceService, private authService: AuthService) { }
+  constructor( public router: Router,public activatedRoute: ActivatedRoute, public usuarioService: UsuarioServiceService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.cargarUsuario();

@@ -47,7 +47,7 @@ export class ProductosCrudComponent implements OnInit {
 
   
 
-  constructor(private orderHistoryService: OrderHistoryService, private productoService: ProductoServicioService, private route: ActivatedRoute) { }
+  constructor(public orderHistoryService: OrderHistoryService, public productoService: ProductoServicioService, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.productoService.getProductos()
@@ -61,7 +61,7 @@ export class ProductosCrudComponent implements OnInit {
 
     const theEmail = JSON.parse(this.storage.getItem('userEmail'))
 
-    this.orderHistoryService.getOrderHistory('user@user1.cl').subscribe(
+    this.orderHistoryService.getOrderHistory('felipe@gmail.com').subscribe(
       data=> {
         this.orderHistory = data._embedded.orders;
       }
@@ -116,7 +116,7 @@ export class ProductosCrudComponent implements OnInit {
       body.push({numero: orden.id,precio: orden.totalPrice, cantidad: orden.totalQuantity, fecha:orden.dateCreated})
     });
 
-    console.log(body);
+    console.log('HOLAAAAAAAA' + body);
 
     doc.text('Reporte de pedidos/ventas VIVERO MYS PLANTAS Y SUCULENTAS ',30,25);
 
@@ -124,9 +124,9 @@ export class ProductosCrudComponent implements OnInit {
       
       body,
       columns: [
-        { header: 'Número de orden', dataKey: 'numero' },
+        { header: 'N° Orden', dataKey: 'numero' },
         { header: 'Este es el precio', dataKey: 'precio' },
-        { header: 'Este es la cantidad', dataKey: 'cantidad' },
+        { header: 'Cantidad', dataKey: 'cantidad' },
         { header: 'Fecha de ingreso', dataKey: 'fecha' }, 
 
 

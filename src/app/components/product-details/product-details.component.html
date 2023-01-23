@@ -1,125 +1,143 @@
-
-
 <!-- ------------------------------------ -->
 
 
 
-    <div class="mainBackground clearfix">
-        <div class="">
-            <div class="column small-centered">
-                <div class="productCard_block">
-                    <div class="row">
-                        <div class="small-12 large-6 columns">
-                            <div class="productCard_leftSide clearfix">
+<div class="mainBackground clearfix">
+    <div class="">
+        <div class="column small-centered">
+            <div class="productCard_block">
+                <div class="row">
+                    <div class="small-12 large-6 columns">
+                        <div class="productCard_leftSide clearfix">
 
-                                <div class="sliderBlock">
-                                    <ul class="sliderBlock_items">
-                                        <div class="sliderBlock_items__itemPhoto">
-                                            <img src="{{product?.imageUrl }}" style="width: 350px; margin-left: 80px; margin-top: 70px;" class="rounded">
-
-                                        </div>
-
-                                    </ul>
-
-
-                                    <div class="sliderBlock_controls">
-                                        <div class="sliderBlock_controls__navigatin">
-                                            <div class="sliderBlock_controls__wrapper">
-                                            </div>
-                                        </div>
+                            <div class="sliderBlock">
+                                <ul class="sliderBlock_items">
+                                    <div class="sliderBlock_items__itemPhoto">
+                                        <img src="{{product?.imageUrl }}"
+                                            style="width: 350px; margin-left: 80px; margin-top: 70px;" class="rounded">
 
                                     </div>
+
+                                </ul>
+
+
+                                <div class="sliderBlock_controls">
+                                    <div class="sliderBlock_controls__navigatin">
+                                        <div class="sliderBlock_controls__wrapper">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="small-12 large-6 columns">
-                            <div class="productCard_rightSide">
-                                <div class="block_specification">
+                    </div>
+                    <div class="small-12 large-6 columns">
+                        <div class="productCard_rightSide">
+                            <div class="block_specification">
 
-                                    <div class="block_specification__informationShow hide">
-                                        <i class="fa fa-info-circle block_specification__button block_specification__button__jump"
-                                            aria-hidden="true"></i>
-                                        <span class="block_specification__text">inform</span>
-                                    </div>
+                                <div class="block_specification__informationShow hide">
+                                    <i class="fa fa-info-circle block_specification__button block_specification__button__jump"
+                                        aria-hidden="true"></i>
+                                    <span class="block_specification__text">inform</span>
                                 </div>
+                            </div>
 
-                                <div class="block_product">
-                                    <h2 class="block_name block_name__mainName">{{product?.name}}</h2>
+                            <div class="block_product">
+                                <h2 class="block_name block_name__mainName">{{product?.name}}</h2>
 
-                                    <p class="block_product__advantagesProduct">
-                                        Planta perteneciente a la familia de las aizoáceas.
-                                    </p>
-                                        <div class="block_descriptionInformation">
-                                            <span>{{product.description}}</span>
+                                <p class="block_product__advantagesProduct">
+                                    Planta perteneciente a la familia de las aizoáceas.
+                                </p>
+                                <div class="block_descriptionInformation">
+                                    <h5>{{product.description}}</h5>
+                                    <hr>
+                                    <div *ngIf="authService.hasRole('ROLE_USER')">
+
+                                        <div *ngIf="product.url != null">
+                                            <h1>Ficha de ayuda para clientes</h1>
+                                            <!-- <embed [src]="pdfURL(urlViste) | safe" type="application/pdf" width="40%"
+                                                height="90px" /> -->
+                                            <object type="application/pdf" [data]="pdfURL(urlViste) | safe" width="250"
+                                                height="90" name="pranagaaaa">
+                                            </object>
+                                            <hr>
                                         </div>
 
-                                        <div class="block_rating clearfix">
-                                            <fieldset class="block_rating__stars">
-                                                <input type="radio" id="star5" name="rating" value="5" /><label
-                                                    class="full" for="star5" title="Awesome - 5 stars"></label>
-                                                <input type="radio" id="star4half" name="rating"
-                                                    value="4 and a half" /><label class="half" for="star4half"
-                                                    title="Pretty good - 4.5 stars"></label>
-                                                <input type="radio" id="star4" name="rating" value="4" /><label
-                                                    class="full" for="star4" title="Good - 4 stars"></label>
-                                                <input type="radio" id="star3half" name="rating"
-                                                    value="3 and a half" /><label class="half" for="star3half"
-                                                    title="Above average - 3.5 stars"></label>
-                                                <input type="radio" id="star3" name="rating" value="3" /><label
-                                                    class="full" for="star3" title="Average - 3 stars"></label>
-                                                <input type="radio" id="star2half" name="rating"
-                                                    value="2 and a half" /><label class="half" for="star2half"
-                                                    title="Kinda bad - 2.5 stars"></label>
-                                                <input type="radio" id="star2" name="rating" value="2" /><label
-                                                    class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                                <input type="radio" id="star1half" name="rating"
-                                                    value="1 and a half" /><label class="half" for="star1half"
-                                                    title="Meh - 1.5 stars"></label>
-                                                <input type="radio" id="star1" name="rating" value="1" /><label
-                                                    class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                                <input type="radio" id="starhalf" name="rating" value="half" /><label
-                                                    class="half" for="starhalf"
-                                                    title="Sucks big time - 0.5 stars"></label>
-                                            </fieldset>
-
-                                            <span class="block_rating__avarage">0.0</span>
-                                            <span class="block_rating__reviews">(0 vistas)</span>
-
-                                        </div>
-                                        <div class="row ">
-                                            <div class="large-6 small-12 column left-align">
-                                                <div class="block_price">
-                                                    <p class="block_price__currency">${{product.unitPrice}} CLP</p>
-                                                    <br>
-                                                    <p *ngIf="product.unitsInStock != 0 && product.unitsInStock != 1">{{product.unitsInStock}} Unidades en Stock</p>
-                                                    <p *ngIf="product.unitsInStock == 1">{{product.unitsInStock}} Unidad en Stock</p>
-
-                                                    <div  *ngIf="product.unitsInStock == 0" class="alert alert-warning col-md-12" role="alert">
-                                                        <p>PRODUCTO AGOTADO</p>
-                                                    </div>
-
-                                                    <p class="block_price__shipping">Envío e impuestos adicionales</p>
-                                                </div>
-                                            </div>
-                                            <div class="large-6 small-12 column end">
-                                                <div class="block_goodColor">
-                                                    
-                                                </div>
-                                                <button class="button button_addToCard"  (click)="addToCart()">
-                                                    Añadir al carrito
-                                                </button>
-                                                
-                                            </div>
-
-                                        </div>
+                                    </div>
                                     
                                 </div>
+
+
+                                <br>
+                                <div class="block_rating clearfix">
+                                    <fieldset class="block_rating__stars">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class="full"
+                                            for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label
+                                            class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class="full"
+                                            for="star4" title="Good - 4 stars"></label>
+                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label
+                                            class="half" for="star3half" title="Above average - 3.5 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class="full"
+                                            for="star3" title="Average - 3 stars"></label>
+                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label
+                                            class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class="full"
+                                            for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label
+                                            class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class="full"
+                                            for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf" name="rating" value="half" /><label
+                                            class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+
+                                    <span class="block_rating__avarage">0.0</span>
+                                    <span class="block_rating__reviews">(0 vistas)</span>
+
+
+                                </div>
+
+
+
+                                <div class="row ">
+                                    <div class="large-6 small-12 column left-align">
+                                        <div class="block_price">
+                                            <p class="block_price__currency">${{product.unitPrice}} CLP</p>
+                                            <br>
+                                            <p *ngIf="product.unitsInStock != 0 && product.unitsInStock != 1">
+                                                {{product.unitsInStock}} Unidades en Stock</p>
+                                            <p *ngIf="product.unitsInStock == 1">{{product.unitsInStock}} Unidad en
+                                                Stock</p>
+
+                                            <div *ngIf="product.unitsInStock == 0" class="alert alert-warning col-md-12"
+                                                role="alert">
+                                                <p>PRODUCTO AGOTADO</p>
+                                            </div>
+
+                                            <p class="block_price__shipping">Envío e impuestos adicionales</p>
+                                        </div>
+                                    </div>
+                                    <div class="large-6 small-12 column end">
+                                        <div class="block_goodColor">
+
+                                        </div>
+                                        <button class="button button_addToCard" (click)="addToCart()">
+                                            Añadir al carrito
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a style="margin-left: 5%; box-shadow: 6px 4px 8px 0  #111;" routerLink="/products" class="btn btn-info">
-            < Volver a la Lista de Productos</a>
     </div>
+    <a style="margin-left: 5%; box-shadow: 6px 4px 8px 0  #111;" routerLink="/products" class="btn btn-info">
+        < Volver a la Lista de Productos</a>
+</div>

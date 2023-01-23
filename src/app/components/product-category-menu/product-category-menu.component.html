@@ -1,6 +1,7 @@
 <div class="menu-sidebar-content js-scrollbar1">
     <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
+        <h2> Categorías: </h2>
            
             <li *ngFor="let temProductCategory of productCategories">
                 <a routerLink="category/{{ temProductCategory.id }}" routerLinkActive="active-link" style="text-decoration: none;">{{ temProductCategory.categoryName }}</a>
@@ -8,11 +9,49 @@
             
         </ul>
 
-        <ul>
+
+<hr *ngIf="authService.hasRole('ROLE_USER')">
+
+
+        <ul class="list-unstyled navbar-list">
             <li *ngIf="authService.hasRole('ROLE_USER')">
-                <button  routerLink="/order-history" class="security-btn ml-1">Pedidos</button>
+                <a  routerLink="/order-history" routerLinkActive="active-link" style="text-decoration: none;">Pedidos</a>
             </li>
 
         </ul>
+
+        <hr>
+        <h2> Explorar: </h2>
+        <a href="
+        https://www.facebook.com/MySPlantasySuculentasChillan
+        " style="text-decoration: none; color: #000;">
+        <h4><i class="fa-brands fa-facebook-f" style="color: blue;"></i> Facebook</h4>
+        </a>
+        <a href="
+        https://www.instagram.com/mys_vivero/
+        " style="text-decoration: none; color: #000;">
+        <h4><i class="fa-brands fa-instagram" style="color: darkgoldenrod;"></i> Instagram</h4>
+        </a>
+        <a href="
+        https://www.facebook.com/MySPlantasySuculentasChillan
+        " style="text-decoration: none; color: #000;">
+        <h4><i class="fa-regular fa-image" style="color: green;"></i> Galería de Fotos</h4>
+        </a>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <h3><b>Sobre nosotros:</b></h3>
+        <p>Ubicados en: <a href="https://www.google.com/maps?ll=-36.62738,-72.077617&z=15&t=m&hl=es-419&gl=CL&mapclient=embed&q=Pje.+Niquen+2795+3790999+Niquen,+Chillan+%C3%91uble" style="text-decoration: none;">Pje. Ñiquen 2795</a></p>
+        <p>&#169; Vivero MyS Plantas y Suculentas Chillán 2020 - 2023</p>
+        <hr>
     </nav>
 </div>

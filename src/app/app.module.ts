@@ -60,6 +60,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import { SafePipe } from './safe.pipe';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -93,6 +95,8 @@ const oktaAuth = new OktaAuth(oktaConfig);
     FormeditarComponent,
     OrderHistoryComponent,
     PdfComponent,
+    DetalleProductoComponent,
+    SafePipe,
 
   ],
   imports: [

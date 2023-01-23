@@ -50,11 +50,11 @@ export class CheckoutComponent implements OnInit {
 
   public payPalConfig ?: IPayPalConfig;
 
-  constructor(private formBuilder: FormBuilder,
-              private shopFormService: ShopFormMySPlantasService,
-              private cartService: CartService,
-              private checkoutService: CheckoutService,
-              private router: Router) { }
+  constructor(public formBuilder: FormBuilder,
+    public shopFormService: ShopFormMySPlantasService,
+    public cartService: CartService,
+    public checkoutService: CheckoutService,
+    public router: Router) { }
 
   
         

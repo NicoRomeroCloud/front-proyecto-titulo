@@ -9,7 +9,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-lista-productos',
   templateUrl: './lista-productosgrid.component.html',
-  styleUrls: ['./lista-productos.component.css']
+  styleUrls: ['./lista-productos.component.css'],
+  
 })
 export class ListaProductosComponent implements OnInit {
 
@@ -26,8 +27,8 @@ export class ListaProductosComponent implements OnInit {
   previousKeyword: string = null;
 
 
-  constructor(private productService: ProductoServicioService,
-    private route: ActivatedRoute,
+  constructor(public productService: ProductoServicioService,
+    public route: ActivatedRoute,
     private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -35,6 +36,9 @@ export class ListaProductosComponent implements OnInit {
       this.listProducts();
     });
   }
+
+  
+
   listProducts() {
 
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
@@ -134,5 +138,7 @@ export class ListaProductosComponent implements OnInit {
     )
 
   }
+
+  
 
 }

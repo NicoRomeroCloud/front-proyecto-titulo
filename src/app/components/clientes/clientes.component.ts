@@ -16,7 +16,9 @@ export class ClientesComponent implements OnInit{
 
     clienteSeleccionado:Cliente;
 
-    constructor(private clienteService: ClienteService, private modalService: ModalService, public authService: AuthService) {
+    
+
+    constructor(public clienteService: ClienteService, public modalService: ModalService, public authService: AuthService) {
         
     }
 

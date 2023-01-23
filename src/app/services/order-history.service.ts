@@ -21,6 +21,14 @@ export class OrderHistoryService {
   }
 
 
+  getOrderHistory2(): Observable<GetResponseHistory>{
+
+    const order = `${this.ordenUrl}/search/findAll`;
+
+    return this.httpClient.get<GetResponseHistory>(order);
+
+  }
+
 
 }
 

@@ -272,6 +272,11 @@ small{
 
 .footer .row{
     display: flex;
+    
+}
+.footer{
+    margin-left: 200px;
+
 }
 
 .menu-icon{

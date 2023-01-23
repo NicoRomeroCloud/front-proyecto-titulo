@@ -12,7 +12,7 @@ export class CartStatusComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
   authService2: AuthService
-  constructor(private cartService: CartService) { }
+  constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
     this.updateCartStatus();

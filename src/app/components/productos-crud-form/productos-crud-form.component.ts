@@ -16,7 +16,7 @@ export class ProductosCrudFormComponent implements OnInit {
   producto: Producto = new Producto();
   categorias: ProductCategory[] = [];
 
-  constructor( private productoService: ProductoServicioService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor( public productoService: ProductoServicioService, public router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 

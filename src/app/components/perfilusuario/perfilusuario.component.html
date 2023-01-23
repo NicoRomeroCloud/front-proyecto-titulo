@@ -2,36 +2,39 @@
 <br>
 <br>
 <br>
-<div class="card bg-dark text-white">
-    <div class="card-header"><h1>Detalles del perfil</h1></div>
-    <div class="card-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <ul *ngIf="usuario" class="list-group text-dark">
-                        <li class="list-group-item">Nombre de usuario: {{usuario.username}}</li>
-                        <li class="list-group-item">Nombre: {{usuario.nombre}}</li>
-                        <li class="list-group-item">Apellido: {{usuario.apellido}}</li>
-                        <li class="list-group-item">Email: {{usuario.email}}</li>
-
-
-        
-        
-                    </ul>
-                    
-                    <div class="input-group mb-3">
-        
-                        <div class="custom-file">
+<div class="container">
+    <div class="card bg-dark text-white">
+        <div class="card-header"><h1>Detalles del perfil</h1></div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <ul *ngIf="usuario" class="list-group text-dark">
+                            <li class="list-group-item">Nombre de usuario: {{usuario.username}}</li>
+                            <li class="list-group-item">Nombre: {{usuario.nombre}}</li>
+                            <li class="list-group-item">Apellido: {{usuario.apellido}}</li>
+                            <li class="list-group-item">Email: {{usuario.email}}</li>
+    
+    
             
+            
+                        </ul>
+                        
+                        <div class="input-group mb-3">
+            
+                            <div class="custom-file">
+                
+                            </div>
+                
                         </div>
+                    
+                        <button type="button" [routerLink]="['/perfilusuario/form', authService.usuario.id]" class="btn btn-primary btn-sm">Editar</button>
             
                     </div>
-                
-                    <button type="button" [routerLink]="['/perfilusuario/form', authService.usuario.id]" class="btn btn-primary btn-sm">Editar</button>
-        
+            
                 </div>
-        
             </div>
         </div>
     </div>
+    
 </div>

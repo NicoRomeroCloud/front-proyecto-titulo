@@ -42,7 +42,6 @@
                         <li ><a routerLink="/category/1" style="text-decoration: none;">Productos</a></li>
                         <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/clientes">Clientes proveedores</a></li>
                         <li *ngIf="authService.hasRole('ROLE_ADMIN')"><a style="text-decoration: none;" routerLink="/productoscrud">Editar productos</a></li>
-                        <li *ngIf="authService.hasRole('ROLE_USER')"><a style="text-decoration: none;" href="">Contact</a></li>
                         
                    </ul>
                 </nav>
@@ -70,8 +69,9 @@
       <!-- MAIN CONTENT-->
       <router-outlet></router-outlet>
     </div>
-  
+    
   </div>
+
   <div class="footer">
     <div class="container">
         <div class="row">
@@ -108,10 +108,9 @@
             </div>
         </div>
         <hr>
-        <p class="Copyright">Copyright 2022UBB - ProyectoTítulo.NRSJ</p>
+        <p class="Copyright">	&#174;2022UBB - &#174;ProyectoTítulo.NRSJ</p>
     </div>
 </div>
-
   <!-- FIN -->
   
 

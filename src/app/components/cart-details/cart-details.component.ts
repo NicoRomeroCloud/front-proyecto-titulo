@@ -17,7 +17,7 @@ export class CartDetailsComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private cartService: CartService, private router: Router, public authService: AuthService) { }
+  constructor(public cartService: CartService, public router: Router, public authService: AuthService) { }
 
   private isNoAutorizado(e):boolean{
     if(e.status==401 || e.status==403){

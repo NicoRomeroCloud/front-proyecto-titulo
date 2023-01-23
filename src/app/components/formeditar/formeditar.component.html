@@ -2,65 +2,70 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+
+<div class="container">
     <h2 *ngIf="usuario.id">Editar su perfil</h2>
 
-<div class="card bg-dark text-white">
+    <div class="card bg-dark text-white">
+        
+        <div class="card-header"></div>
+        <div class="card-body">
     
-    <div class="card-header"></div>
-    <div class="card-body">
-
-        <form >
-            <div class="form-group row">
-                <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
-                <div class="col-sm-6">
-                     <input type="text" class="form-control" [(ngModel)]="usuario.nombre"  name="nombre"  placeholder="Ingrese su nuevo nombre al sistema"><!-- required minlength="4" -->
-                     
+            <form >
+                <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                         <input type="text" required class="form-control" [(ngModel)]="usuario.nombre"  name="nombre"  placeholder="Ingrese su nuevo nombre al sistema"><!-- required minlength="4" -->
+                         
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="name" class="col-form-label col-sm-2">Apellido</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido"  ><!-- required  -->
-                    
+    
+                <div class="form-group row">
+                    <label for="name" class="col-form-label col-sm-2">Apellido</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido"  required><!-- required  -->
+                        
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="description" class="col-form-label col-sm-2">Username</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username"  ><!-- required category -->
-                    
+    
+                <div class="form-group row">
+                    <label for="description" class="col-form-label col-sm-2">Username</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username"  required><!-- required category -->
+                        
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="unitPrice" class="col-form-label col-sm-2">Contraseña</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control" [(ngModel)]="usuario.password" name="unitPrice"  ><!-- required category -->
-                    
+    
+                <div class="form-group row">
+                    <label for="unitPrice" class="col-form-label col-sm-2">Contraseña</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" [(ngModel)]="usuario.password" name="unitPrice"  required><!-- required category -->
+                        
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="unitsInStock" class="col-form-label col-sm-2">Email</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email"  ><!-- required category -->
-                    
+    
+                <div class="form-group row">
+                    <label for="unitsInStock" class="col-form-label col-sm-2">Email</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email"  required><!-- required category -->
+                        
+                    </div>
                 </div>
-            </div>
+    
+                <div class="form-group row">
+                    <div class="col-ms-6">
+                        <button class="btn btn-primary" role="button" (click)="updateUser()" *ngIf="usuario.id">Guardar</button>
 
-            <div class="form-group row">
-                <div class="col-ms-6">
-                    <button class="btn btn-primary" role="button" (click)="updateUser()" *ngIf="usuario.id">Guardar</button>
+                        <br>
+                        <br>
+
+                        <button class="btn btn-primary" role="button" [routerLink]="['/perfilusuario/', authService.usuario.id]">Volver</button>
+
+                    </div>
                 </div>
-            </div>
-
-        </form>
-
+    
+            </form>
+    
+        </div>
     </div>
 </div>

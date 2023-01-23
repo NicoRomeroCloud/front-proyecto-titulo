@@ -13,7 +13,7 @@ export class LinkperfilComponent implements OnInit {
   
   usuario: Usuario;
 
-  constructor(private activatedRoute: ActivatedRoute, private usuarioService: UsuarioServiceService) { }
+  constructor(public activatedRoute: ActivatedRoute, public usuarioService: UsuarioServiceService) { }
 
   ngOnInit(){
     this.activatedRoute.paramMap.subscribe( params =>{

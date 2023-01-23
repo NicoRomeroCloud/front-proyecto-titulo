@@ -25,7 +25,7 @@ export class Login2StatusComponent implements OnInit {
  email: any;
 
 
-  constructor( private activatedRoute: ActivatedRoute, public authService: AuthService, private router: Router, private usuarioService: UsuarioServiceService) { }
+  constructor( public activatedRoute: ActivatedRoute, public authService: AuthService, public router: Router, public usuarioService: UsuarioServiceService) { }
 
 
   

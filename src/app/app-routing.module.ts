@@ -16,6 +16,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
 import { FormeditarComponent } from './components/formeditar/formeditar.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -29,6 +30,9 @@ const routes: Routes = [
   {path: 'perfilusuario/:id', component: PerfilusuarioComponent},
 
   {path: 'perfilusuario/form/:id', component: FormeditarComponent},
+
+  {path: 'productoscrud/products/ver/:id', component: DetalleProductoComponent},
+
 
 
 

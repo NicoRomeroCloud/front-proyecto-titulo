@@ -13,7 +13,7 @@ export class OrderHistoryComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  constructor( private orderHistoryService: OrderHistoryService) { }
+  constructor( public orderHistoryService: OrderHistoryService) { }
 
   ngOnInit(): void {
     this.handleOrderHistory();

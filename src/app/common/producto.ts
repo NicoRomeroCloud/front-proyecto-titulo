@@ -2,17 +2,18 @@ import { ProductCategory } from "./product-category";
 
 export class Producto {
 
-                public id: number
-                public sku: string
-                public category: ProductCategory
-                public name: string
-                public description: string
-                public unitPrice: number
-                public imageUrl: string
-                public active: boolean
-                public unitsInStock: number
-                public dateCreated: Date
-                public lastUpdated: Date
+                 id: number;
+                 sku: string;
+                 category: ProductCategory;
+                 name: string;
+                 description: string;
+                 unitPrice: number;
+                 imageUrl: string;
+                 active: boolean;
+                 unitsInStock: number;
+                 dateCreated: Date;
+                 lastUpdated: Date;
+                 url: string;
         
 
 }

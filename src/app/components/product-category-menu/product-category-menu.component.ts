@@ -12,7 +12,7 @@ export class ProductCategoryMenuComponent implements OnInit {
 
   productCategories: ProductCategory[] = [];
 
-  constructor(private productoService: ProductoServicioService, public authService: AuthService) { 
+  constructor(public productoService: ProductoServicioService, public authService: AuthService) { 
 
    }
 

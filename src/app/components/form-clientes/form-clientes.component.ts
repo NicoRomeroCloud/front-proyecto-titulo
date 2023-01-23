@@ -15,7 +15,7 @@ export class FormClientesComponent implements OnInit {
   public errores: string[];
 
 
-  constructor(private clienteService: ClienteService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(public clienteService: ClienteService, public router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cargarCliente();

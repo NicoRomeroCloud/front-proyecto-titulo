@@ -18,7 +18,7 @@ export class Checkout2Component implements OnInit {
   });
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(public _formBuilder: FormBuilder) {}
   ngOnInit(): void {
   }
 

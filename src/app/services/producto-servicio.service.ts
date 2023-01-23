@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
@@ -6,6 +6,8 @@ import { Producto } from "../common/producto";
 import { ProductCategory } from '../common/product-category';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { OrderHistory } from '../common/order-history';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +22,23 @@ export class ProductoServicioService {
 
   private caegoriaoUrl = 'http://localhost:8080/api/productos/categorias'
 
-
+  private ordenUrl = 'http://localhost:8080/api/orders';
   constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
   }
 
   private isNoAutorizado(e):boolean{
-    if(e.status==401 || e.status==403){
+    if(e.status==401){
+
+        if (this.authService.isLogged()) {
+            this.authService.logout();
+        }
+
+      this.router.navigate(["/login"]);
+      return true;
+    }
+    if(e.status==403){
+
+        Swal.fire('Acceso denegado', `Hola ${this.authService.usuario.username}, no tienes acceso a este recurso!`, 'warning')
 
         if (this.authService.isLogged()) {
             this.authService.logout();
@@ -36,6 +49,35 @@ export class ProductoServicioService {
     }
     return false;
   }
+  getOrderHistory(): Observable<GetResponseHistory>{
+
+    const order = `${this.baseUrl}/listar/ordenes`;
+
+    return this.httpClient.get<GetResponseHistory>(order);
+
+  }
+
+  uploadFile(formData: FormData): Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/productos/uploads", formData);
+  }
+
+  subirFoto(archivo: File, id): Observable<HttpEvent<{}>>{
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("id", id);
+    let httpHeaders = new HttpHeaders();
+    let token = this.authService.token;
+    if (token != null) {
+      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+   }
+
+    const req = new HttpRequest('POST', `${this.productoUrl}/uploads`, formData,
+    {
+      headers: httpHeaders
+    });
+
+    return this.httpClient.request(req);
+}
 
 
   getProductos():Observable<Producto[]>{
@@ -141,5 +183,11 @@ interface GetResponseProducts {
 interface GetResponseProductCategory {
   _embedded: {
     productCategory: ProductCategory[];
+  }
+}
+
+interface GetResponseHistory{
+  _embedded: {
+    orders: OrderHistory[];
   }
 }

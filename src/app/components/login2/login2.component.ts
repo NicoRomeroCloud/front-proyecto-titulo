@@ -17,7 +17,7 @@ export class Login2Component implements OnInit {
 
   titulo:string= "Inicia sesión para acceder a la compra de productos, ¿genail? ¿no?"
   usuario:Usuario;
-  constructor( private authService: AuthService, private router: Router) {
+  constructor( public authService: AuthService, public router: Router) {
     this.usuario = new Usuario();
    }
 

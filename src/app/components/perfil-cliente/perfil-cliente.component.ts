@@ -17,15 +17,15 @@ export class PerfilClienteComponent implements OnInit {
 
   @Input()cliente: Cliente;
 
-  private fotoSelect: File;
+  public fotoSelect: File;
 
   progreso:number = 0;
 
 
 
-  constructor( private clienteService: ClienteService, 
-               private activatedRoute: ActivatedRoute, 
-               public modalService: ModalService) { }
+  constructor( public clienteService: ClienteService, 
+    public activatedRoute: ActivatedRoute, 
+    public modalService: ModalService) { }
 
   ngOnInit(): void {
 

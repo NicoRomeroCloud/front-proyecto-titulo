@@ -3,6 +3,7 @@
 <br>
 <br>
 <br>
+<div class="container">
     <h2 *ngIf="!producto.id">Agregar producto a la base de datos para mostarlo en el sistema</h2>
     <h2 *ngIf="producto.id">Editar producto de la base de datos</h2>
 
@@ -71,12 +72,18 @@
 
             <div class="form-group row">
                 <div class="col-ms-6">
-                    <button class="btn btn-primary" role="button" (click)="crearProducto()" *ngIf="!producto.id">Crear</button>
+                    <button class="btn btn-primary" role="button" (click)="crearProducto()"  *ngIf="!producto.id">Crear</button>
                     <button class="btn btn-primary" role="button" (click)="actualizarProducto()" *ngIf="producto.id">Guardar</button>
+                    <br>
+                    <br>
+
+                    <button class="btn btn-primary" role="button" routerLink="/productoscrud" >Volver</button>
+                    
                 </div>
             </div>
 
         </form>
 
     </div>
+</div>
 </div>

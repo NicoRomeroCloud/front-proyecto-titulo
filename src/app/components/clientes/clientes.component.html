@@ -4,7 +4,8 @@
 <br>
 <br>
 
-<app-perfil-cliente *ngIf="clienteSeleccionado" [cliente] = "clienteSeleccionado"></app-perfil-cliente>
+<div class="container">
+  <app-perfil-cliente *ngIf="clienteSeleccionado" [cliente] = "clienteSeleccionado"></app-perfil-cliente>
 
 <div class="card border-primary mb-3">
     <div class="card-header">Clientes</div>
@@ -58,3 +59,4 @@
   
     </div>
   </div>
+</div>
