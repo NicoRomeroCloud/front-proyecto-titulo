@@ -12,9 +12,9 @@ import { AuthService } from './auth.service';
 })
 export class UsuarioServiceService {
 
-  private url:string='http://localhost:8080/api/user';
+  private url:string='https://back-proyecto.onrender.com/user';
 
-  private urlRol:string='http://localhost:8080/api/role';
+  private urlRol:string='https://back-proyecto.onrender.com/role';
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 

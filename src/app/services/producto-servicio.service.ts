@@ -14,15 +14,15 @@ import { OrderHistory } from '../common/order-history';
 })
 export class ProductoServicioService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
+  private baseUrl = 'https://back-proyecto.onrender.com/products';
 
-  private categoryUrl = 'http://localhost:8080/api/product-category';
+  private categoryUrl = 'https://back-proyecto.onrender.com/product-category';
 
-  private productoUrl = 'http://localhost:8080/api/productos'
+  private productoUrl = 'https://back-proyecto.onrender.com/productos'
 
-  private caegoriaoUrl = 'http://localhost:8080/api/productos/categorias'
+  private caegoriaoUrl = 'https://back-proyecto.onrender.com/categorias'
 
-  private ordenUrl = 'http://localhost:8080/api/orders';
+  private ordenUrl = 'https://back-proyecto.onrender.com//orders';
   constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
   }
 
@@ -58,7 +58,7 @@ export class ProductoServicioService {
   }
 
   uploadFile(formData: FormData): Observable<any>{
-    return this.httpClient.post("http://localhost:8080/api/productos/uploads", formData);
+    return this.httpClient.post("https://back-proyecto.onrender.com/productos/uploads", formData);
   }
 
   subirFoto(archivo: File, id): Observable<HttpEvent<{}>>{

@@ -11,9 +11,9 @@ import { AuthService } from './auth.service';
 })
 export class ShopFormMySPlantasService {
 
-  private countriesUrl = 'http://localhost:8080/api/countries';
+  private countriesUrl = 'https://back-proyecto.onrender.com/countries';
 
-  private statesUrl = 'http://localhost:8080/api/states';
+  private statesUrl = 'https://back-proyecto.onrender.com/states';
 
   constructor( private httpClient: HttpClient, private authService: AuthService) { }
 

@@ -8,7 +8,7 @@ import { OrderHistory } from '../common/order-history';
 })
 export class OrderHistoryService {
 
-  private ordenUrl = 'http://localhost:8080/api/orders';
+  private ordenUrl = 'https://back-proyecto.onrender.com/orders';
 
   constructor(private httpClient: HttpClient) { }
 

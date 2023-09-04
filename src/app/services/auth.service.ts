@@ -48,7 +48,7 @@ export class AuthService {
 
   login(usuario: Usuario): Observable<any>{
 
-    const urlEndopoint = 'http://localhost:8080/oauth/token';
+    const urlEndopoint = 'https://back-proyecto.onrender.com/oauth/token';
 
     const credenciales = btoa('angularapp' + ':' + '12345');
 

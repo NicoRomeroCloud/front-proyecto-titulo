@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class CheckoutService {
 
-  private purchaseUrl = 'http://localhost:8080/api/checkout/purchase';
+  private purchaseUrl = 'https://back-proyecto.onrender.com/checkout/purchase';
 
   constructor(private httpCliente: HttpClient, private router: Router, private authService: AuthService) { }
 
